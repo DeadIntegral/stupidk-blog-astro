@@ -1,6 +1,6 @@
 ---
 interface Props {
-	date: Date;
+  date: Date;
 }
 
 const { date } = Astro.props;
@@ -8,11 +8,11 @@ const parsedDate = new Date(date);
 ---
 
 <time datetime={parsedDate.toISOString()}>
-	{
-		parsedDate.toLocaleDateString('ko-KR', {
-			year: 'numeric',
-			month: 'short',
-			day: 'numeric',
-		})
-	}
+  {
+    parsedDate.toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    })
+  }
 </time>
