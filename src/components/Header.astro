@@ -2,7 +2,14 @@
 import HeaderLink from './HeaderLink.astro';
 import { SITE_TITLE } from '../consts';
 ---
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0RKTW6K2K"></script>
+<script is:inline>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
 
+  gtag('config', 'G-Z0RKTW6K2K');
+</script>
 <header>
 	<nav>
 		<h2><a href="/">{SITE_TITLE}</a></h2>
