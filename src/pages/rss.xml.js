@@ -16,7 +16,7 @@ export async function GET(context) {
       title: post.data.title,
       pubDate: post.data.date,
       description: post.data.description,
-      link: `/blog/${post.slug}/`,
+      link: `/weekly/${post.slug}/`,
     })),
   ]
   // console.dir(items, {'maxArrayLength': null})
