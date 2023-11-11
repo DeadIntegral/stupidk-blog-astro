@@ -46,7 +46,7 @@ tags: ["javascript", "CSS", "node", "browser"]
 ### **[Announcing Docusaurus 3.0](https://docusaurus.io/blog/releases/3.0)**
 
 - nodejs18, react18, mdx3, TS5 등 디펜던시 브레이킹 체인지.
-- 마크다운 글로벌 구성 방법 도입(docusaurus.config.js 에서 셋팅**)**
+- 마크다운 글로벌 구성 방법 도입(docusaurus.config.js 에서 셋팅)
 
 # ETC
 
