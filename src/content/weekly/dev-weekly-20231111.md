@@ -1,7 +1,7 @@
 ---
-title: dev-weekly 2023-11-04
-date: "2023-11-04T11:20:00.000Z"
-description: "dev-weekly 2023-11-04"
+title: dev-weekly 2023-11-11
+date: "2023-11-11T11:20:00.000Z"
+description: "dev-weekly 2023-11-11"
 tags: ["javascript", "CSS", "node", "eslint"]
 ---
 
