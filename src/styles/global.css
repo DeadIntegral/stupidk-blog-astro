@@ -137,9 +137,6 @@ hr {
 * {
   box-sizing: border-box;
 }
-ul {
-  margin-bottom: 2rem;
-}
 
 .sr-only {
   border: 0;
