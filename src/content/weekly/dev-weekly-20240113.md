@@ -4,8 +4,6 @@ date: "2024-01-13T10:40:00.000Z"
 description: "dev-weekly 2024-01-13"
 tags: ["javascript", "CSS", "a11y", "node", "Benchmark"]
 ---
-# 2024-01-13
-
 # CSS
 
 ### **[How to make external links accessible](https://blog.pope.tech/2024/01/02/how-to-make-external-links-accessible)**
