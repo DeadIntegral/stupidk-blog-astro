@@ -1,5 +1,5 @@
 ---
-title: Typescript Achive
+title: Typescript Archive
 date: "2023-11-20T00:00:00.000Z"
 description: "Typescript Update History"
 tags: ["javascript", "typescript"]
