@@ -7,7 +7,7 @@ import { getCollection } from 'astro:content';
 import FormattedDate from '../../components/FormattedDate.astro';
 import '../../styles/postList.css'
 
-const posts = (await getCollection('blog')).sort(
+const posts = (await getCollection('archive')).sort(
   (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
 );
 ---
@@ -25,7 +25,7 @@ const posts = (await getCollection('blog')).sort(
           {
             posts.map((post) => (
               <li>
-                <a href={`/blog/${post.slug}/`}>
+                <a href={`/archive/${post.slug}/`}>
                   <h4 class="title">{post.data.title}</h4>
                   <p class="date">
                     <FormattedDate date={post.data.date} />
