@@ -2,7 +2,7 @@
 title: dev-weekly 2023-04-01
 date: "2023-04-01T14:40:00.000Z"
 description: "dev-weekly 2023-04-01"
-tags: ["javascript", "css", "node", "web", "typescript", "deno"]
+tags: ["javascript", "css", "node", "web", "typescript"]
 ---
 
 # CSS
