@@ -29,7 +29,7 @@ tags: ["javascript", "css", "node", "etc"]
 - 프로젝트 및 종속성에서 취약점, 라이센스 등을 검사하는 무료 CLI 도구
 - 차트, csv, json 등 다양한 출력 포맷 지원
 
-### **['You Don't Need a Build Step'](https://deno.com/blog/you-dont-need-a-build-step)**
+### **[You Don't Need a Build Step](https://deno.com/blog/you-dont-need-a-build-step)**
 
 - 빌드로 인해 얻은 장점과 단점. deno를 사용해서 bulid 프로세스 스킵하기
 
