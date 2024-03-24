@@ -88,6 +88,13 @@ p {
 .prose p {
   margin-bottom: 2em;
 }
+.prose aside {
+  margin-bottom: 2em;
+  border: 1px solid rgb(var(--gray-light));
+  border-radius: 8px;
+  padding: 1em;
+  background-color: rgb(var(--gray-light));
+}
 textarea {
   width: 100%;
   font-size: 0.875;
