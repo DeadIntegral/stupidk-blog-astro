@@ -51,13 +51,13 @@ tags: ["javascript", "node", "css"]
     - e.g. defaultValue 수정하면 value 프로퍼티, 어트리뷰트 둘 다 변경
 - 리액트에선 커스텀 엘리먼트가 작동하지 않음. 프로퍼티는 사전에 리액트에서 정의한 것만 허용 ⇒ react 19에서 변경
 
+# ETC
+
 ### **[F-Shape Pattern And How Users Read](https://www.smashingmagazine.com/2024/04/f-shape-pattern-how-users-read/)**
 
 - 유저가 웹에서 정보를 스캔하는 방식 소개(다양한 패턴들)
 - 사용자는 페이지의 왼쪽 절반을 보는데 80%시간을 사용.
 - 구조화된 스캔을 위해 제목, 부제목 추가하기 등 개선을 위한 가이드
-
-# ETC
 
 ### **Release**
 
