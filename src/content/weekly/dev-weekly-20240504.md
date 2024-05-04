@@ -4,8 +4,6 @@ date: "2024-05-04T15:00:00.000Z"
 description: "dev-weekly 2024-05-04"
 tags: ["javascript", "node", "css"]
 ---
-# 2024-05-04
-
 # CSS
 
 ### **[An alternative proposal for CSS masonry](https://developer.chrome.com/blog/masonry?hl=en)**
