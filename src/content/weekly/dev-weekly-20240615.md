@@ -4,8 +4,6 @@ date: "2024-06-15T17:38:00.000Z"
 description: "dev-weekly 2024-06-15"
 tags: ["css", "browser"]
 ---
-# 2024-06-15
-
 # CSS
 
 ### **[The latest in CSS and web UI: I/O 2024 recap](https://developer.chrome.com/blog/new-in-web-ui-io-2024)**
