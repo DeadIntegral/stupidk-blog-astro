@@ -64,7 +64,7 @@ tags: ["css", "node", "javascript", "clipboard"]
     - data-metadata는 base64인코딩, data-buffer는 피그마 CTO였던 에반이 만든 kiwi 메시지 포맷으로 인코딩
 - 웹 커스텀 포맷(Pickling) - 2022년부터 크로미움에선 `"web "` 접두사를 붙여 비동기 클립보드 API를 통한 커스텀 포맷 작성 가능.
 
-### ETC
+### Release
 
 - [Typescript v5.6.0](https://devblogs.microsoft.com/typescript/announcing-typescript-5-6/)
 - [create-fastify v5.0.0](https://github.com/fastify/create-fastify/releases/tag/v5.0.0)
