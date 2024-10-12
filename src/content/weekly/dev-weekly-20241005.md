@@ -1,8 +1,8 @@
 ---
-title: dev-weekly 2024-01-13
-date: "2024-01-13T10:40:00.000Z"
-description: "dev-weekly 2024-01-13"
-tags: ["javascript", "CSS", "a11y", "node", "Benchmark"]
+title: dev-weekly 2024-10-05
+date: "2024-10-05T10:40:00.000Z"
+description: "dev-weekly 2024-10-05"
+tags: ["javascript", "CSS", "node"]
 ---
 # CSS
 
