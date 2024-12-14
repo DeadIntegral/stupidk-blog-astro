@@ -4,7 +4,6 @@ date: "2023-07-29T16:30:00.000Z"
 description: "dev-weekly 2023-07-29"
 tags: ["javascript", "css", "node"]
 ---
-# 2023-07-29
 
 # CSS
 
