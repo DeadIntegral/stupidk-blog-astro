@@ -39,6 +39,11 @@ tags: ["javascript", "deno"]
 - `erasableSyntaxOnly` 를 사용하면 enum, namespace, class 에서 에러 표시
 - 런타임 동작에 영향을 주지 않고 제거할 수 있음을 의미. nodejs 내장 TS 의 스펙을 맞추는 구문.
 
+### [What is Frontend Architecture?](https://ducin.dev/what-is-frontend-architecture)
+
+- 프론트엔드 아키텍쳐란 디렉토리 구조, 라이브러리나 프레임워크와 같은 도구에 대한 것이 아니라 비즈니스 요구 사항과 시스템 요구 사항을 기반으로 한 기술 결정
+- 다양한 트레이드 오프에 대한 Architecture driver
+
 # ETC
 
 ### [Awesome CursorRules](https://github.com/PatrickJS/awesome-cursorrules)
