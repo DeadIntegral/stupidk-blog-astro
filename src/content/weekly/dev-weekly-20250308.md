@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2025-03-08
-date: "2025-03-08T17:20:00.000Z"
+date: "2025-03-08T12:19:00.000Z"
 description: "dev-weekly 2025-03-08"
 tags: ["javascript", "node", "ai", "browser"]
 ---
