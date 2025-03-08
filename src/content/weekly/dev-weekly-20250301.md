@@ -5,8 +5,6 @@ description: "dev-weekly 2025-03-01"
 tags: ["javascript", "node", "ai", "browser"]
 ---
 
-# 20250301
-
 # Node
 
 ### [Node v23.8.0 (Current)](http://nodejs.org/en/blog/release/v23.8.0)
