@@ -7,7 +7,7 @@ tags: ["javascript", "css", "node"]
 
 # CSS
 
-### [The <select> element can now be customized with CSS](https://developer.chrome.com/blog/a-customizable-select?hl=en)
+### [The `<select>` element can now be customized with CSS](https://developer.chrome.com/blog/a-customizable-select?hl=en)
 
 - 크롬 135부터 custom select 지원
 
