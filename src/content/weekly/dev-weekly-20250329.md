@@ -37,7 +37,7 @@ tags: ["javascript", "css", "node"]
 ### [War story: the hardest bug I ever debugged](https://www.clientserver.dev/p/war-story-the-hardest-bug-i-ever)
 
 - Google Docs에 있을 때 겪었던 가장 어려운 버그
-- Math.abs()의 임수 인풋의 리턴 값이 음수. 크롬팀에 연락, 다시 V8에 연락. V8 최적화 리팩토링 중 누군가의 실수.
+- Math.abs()의 음수 인풋의 리턴 값이 음수. 크롬팀에 연락, 다시 V8에 연락. V8 최적화 리팩토링 중 누군가의 실수.
 
 ### [Next.js Patches Critical Middleware Vulnerability (CVE-2025-29927)](https://socket.dev/blog/next-js-patches-critical-middleware-vulnerability)
 
