@@ -5,8 +5,6 @@ description: "dev-weekly 2025-05-03"
 tags: ["javascript","frontend", "css"]
 ---
 
-# 20250503
-
 # CSS
 
 ### [Anchor Positioning Just Don’t Care About Source Order](https://css-tricks.com/anchor-positioning-just-dont-care-about-source-order/)
