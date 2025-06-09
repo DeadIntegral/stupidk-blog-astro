@@ -5,56 +5,58 @@ description: "dev-weekly 2025-06-07"
 tags: ["node", "javascript"]
 ---
 
-# Nodejs
+# NodeJs
 
-### [Node.js TSC Declines to Endorse Feature Bounty Program](https://socket.dev/blog/node-js-tsc-declines-to-endorse-feature-bounty-program)
+### [OpenJS Foundation Is Now a CNA for 40+ JavaScript Projects Under Its Umbrella](https://socket.dev/blog/openjs-foundation-is-now-a-cna)
 
-- nodejs에 공개 바운티 프로그램이 제안되었으나 거부.
-- 사용자들은 사용자 중심 기능에 돈을 지불할 가능성이 높지만, 메인테이너들은 이미 쌓이고 있는 기술 부채를 우선시하고 싶을 수 있음.
-- 품질 기준이 낮아질 수 있고, 반대 의견이 무시되거나 협력적인 의사 결정이 침식될 수 있음.
-- 사람들이 자금을 지원하고 싶다면 자유롭게 할 수 있지만, 프로젝트 자체가 매커니즘을 관리해서는 안됨.
+- OpenJS 파운데이션은 ESLint, Fastify, Electron, Express, Webpack등 40개 프로젝트에 취약점에 대한 CVE 식별자를 할당할 수 있게되었으며 공개 책임은 각각의 메인테이너에게 존재
 
-# Javascript
+### [qnm: cli utility for querying the node_modules directory](https://github.com/ranyitz/qnm)
 
-### [Cap: A modern, lightning-quick PoW captcha](https://capjs.js.org/)
+- npm, yarn 모두 지원하며 Fuzzy search 지원.
 
-- SHA-256을 사용하는 가벼운 캡차 얼터네이티브.
+# Frontend
 
-### [JavaScript's upcoming Temporal API and what problems it will solve](https://waspdev.com/articles/2025-05-24/temporal-api)
+### [WebStatus.dev: Now with more data, deeper insights, and a clearer path to Baseline](https://web.dev/blog/web-platform-dashboard-evolution?hl=en)
 
-- JS Date객체의 문제점들
-- Temporal의 기능들 예시와 함께 소개
+- 이제 대시보드에서 거의 100%에 달하는 1000개 이상의 기능을 확인 가능. 지원 여부 뿐 아니라 실제 사용 추세도 확인 가능
+- 모바일 브라우저 데이터 통합
+- 하나의 브라우저에서만 누락된 스펙 줌인 기능
 
-### [Wake up, Remix!](https://remix.run/blog/wake-up-remix)
+### [Mini PhotoEditor](https://mini2-photo-editor.netlify.app/)
 
-- React Router 7이 너무 잘나옴. 모든 Route가 server route라면 React Router 7은 이미 Remix가 지향 했던 방향과 매우 유사.
-- 때문에 Remix는 새로운 길을 모색했고, 단순함, 명확성, 성능에 집중한 새로운 프레임워크 가능성을 정의. 이를 위해서는 제어할 수 없는 추상화 계층에 의존하지 않고, 풀스택을 소유해야함. React종속성을 제거하고 Preact를 포크하여 시작.
-- 아직 프리뷰가 준비되진 않았지만 Principle 소개
-    - Model-First Development, Build on Web API, Religiously Runtime, Avoid Dependencies(종속성 제로가 목표), Demand Composition, Distribute Cohesively
+- 오프라인에서 동작가능한 온라인 이미지 편집기
+- [https://github.com/xdadda/mini-photo-editor](https://github.com/xdadda/mini-photo-editor)
 
-### [Your React Meta-Framework Feels Broken, Here's Why](https://rwsdk.com/blog/your-react-meta-framework-feels-broken)
+### [React Native: Freezing the Legacy Architecture](https://github.com/reactwg/react-native-new-architecture/discussions/290)
 
-- RedwoodSDK 소개
-- 모던 프레임워크는 플랫폼 뿐 아니라 유저의 코드까지 추상화. 함수를 작성하는게 아니라 빌드에 포함된 매크로일 뿐. 이건 DX가 아니라 환상. 관용적으로 쓰일 뿐.
-- RedwoodSDK 는 커스텀 신택스도 없고, 숨겨놓은 변형도 없고, 매직도 없음. 웹에 어긋나지 않고 웹과 호환되는 것이 필요.
+- 6월2일부터 레거시 아키텍처 코드베이스 프리징.
+- 앞으로의 개발은 새로운 아키텍처로만 진행하며 백포트 하지 안음.
+
+### [Announcing Babel 8 Beta](https://babel.dev/blog/2025/05/30/babel-8-beta)
+
+- Babel 8 마이그레이션 가이드 제공
+    - [https://next.babeljs.io/docs/v8-migration/](https://next.babeljs.io/docs/v8-migration/)
+- Babel 8은 ESM 만 제공
 
 # ETC
 
-### [HTML5 Elements You Didn't Know You Need](https://dev.to/maxprilutskiy/html5-elements-you-didnt-know-you-need-gan)
+### [IE6, AI, and the future of browsing the Web](https://agenticweb.nearestnabors.com/p/ai-future-web)
 
-- JS 종속성을 줄이고 접근성을 개선하고 HTML을 보다 의미있게 만드는 엘리먼트들
-- dialog, details, datalist, meter, output, mark, time, figure
+- 구글은 W3C와 함께 표준을 개발하는 커뮤니티 계약업체 지원금 삭감. 이는 과거 IE6 과 유사한 방향
+- 유저들이 웹 검색 대신 AI 기반 도구를 사용하며 검색 이용률 감소. 사파리도 검색 감소.
+- 에이전트 웹의 등장
 
-### [Firefox Release Notes 139.0](https://www.mozilla.org/en-US/firefox/139.0/releasenotes/)
+### [The Ingredients of a Productive Monorepo](https://blog.swgillespie.me/posts/monorepo-ingredients/)
 
-- link preview 실험 지원
-- HTTP3 업로드 성능 개선
-- Temporal 기본 활성화, 접혀있는 details 도 검색 가능
+- 모노레포는 조직의 일관성을 위한 도구. 대기업 사례를 따라가도 똑같이 안됨.
+- Source Control - git은 모노레포를 위해 만들어진 도구가 아님. 성능 한계를 맞이하면 MS처럼 git을 fork하거나 메타처럼 Mercurial을 fork하거나 구글처럼 Perforce를 고려하게 될 것.
+- 빌딩 - 여러 언어를 같이 사용할 수 있도록 돕는 도구인 Bazel같은게 있지만 하나의 언어만 쓰는게 좋음.
+- CI - CI 시스템에서 가장 먼저 트리거되는 작업은 변경 사항을 기반으로 다른 작업들을 트리거해야 할지 결정하는 목표 결정자 작업
 
 ### Release
 
-- [multer v2.0.0](https://github.com/expressjs/multer/releases/tag/v2.0.0)
-- [commander.js v14.0.0](https://github.com/tj/commander.js/releases/tag/v14.0.0)
-- [Docusaurus 3.8](https://docusaurus.io/blog/releases/3.8)
-- [Announcing Angular v20](https://blog.angular.dev/announcing-angular-v20-b5c9c06cf301)
-- [ink v6.0.0](https://github.com/vadimdemedes/ink/releases/tag/v6.0.0)
+- [vitest 3.2](https://vitest.dev/blog/vitest-3-2.html)
+- [astro 5.9](https://astro.build/blog/astro-590/)
+- [Ionic 8.6](https://ionic.io/blog/announcing-ionic-8-6)
+- [Storybook 9](https://storybook.js.org/blog/storybook-9/)
