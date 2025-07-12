@@ -7,13 +7,13 @@ tags: ["css", "node", "javascript"]
 
 # CSS
 
-### [**CSS Generators:** SVG to CSS Shape Converter](https://css-generators.com/svg-to-css/)
+### [CSS Generators: SVG to CSS Shape Converter](https://css-generators.com/svg-to-css/)
 
 - svg의 `<path d=”...">` 을 css shape로 변환해주는 도구
 
 # Nodejs
 
-### Node v22.17.0 (LTS)
+### [Node v22.17.0 (LTS)](https://nodejs.org/ko/blog/release/v22.17.0)
 
 - `new` 없이 `node:http` 클래스를 인스턴스화
 - HTTP/2 priority signaling 디프리케이트
