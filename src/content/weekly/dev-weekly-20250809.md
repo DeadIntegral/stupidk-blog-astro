@@ -42,6 +42,12 @@ tags: ["node", "javascript"]
 
 - 깃헙 헤더 프로필 이미지 생성기
 
+### [AI is a Floor Raiser, not a Ceiling Raiser](https://elroy.bot/blog/2025/07/29/ai-is-a-floor-raiser-not-a-ceiling-raiser.html)
+
+- [https://news.hada.io/topic?id=22293](https://news.hada.io/topic?id=22293)
+- 과거 학습 자료는 타겟 유저를 대상으로 제작되었으나, AI는 사용자 수준에 맞출 수 있음.
+- AI는 지식 업무의 지평을 넓혔지만, 이 변화가 모두에게 중요한 것은 아님.
+
 ### Release
 
 - [typescript 5.9](https://devblogs.microsoft.com/typescript/announcing-typescript-5-9/)
