@@ -2,7 +2,7 @@
 title: dev-weekly 2026-03-21
 date: "2026-03-21T22:47:00.000Z"
 description: "dev-weekly 2026-03-21"
-tags: ["javascript", "nodejs"]
+tags: ["javascript", "nodejs", "jpeg"]
 ---
 
 # Nodejs
@@ -43,7 +43,7 @@ tags: ["javascript", "nodejs"]
     - 인간 시각은 색차 보다 휘도(밝기)에 더 민감. JPEG은 밝기와 색상을 분리 (R,G,B → Y`,Cb,Cr)
     - 크로마 서브샘플링(색차 채널의 공간 해상도를 낮추는 작업) 후 JPEG는 픽셀 값 저장하지 않음. 대신 Y`, Cb, Cr 채널에 이산 코사인 변환을 사용하여 코사인 파동의 가중 합으로 변환.
 
-### [What's My Just Noticeable Difference?](https://frontendfoc.us/link/182409/8c1a6869bf)
+### [What's My Just Noticeable Difference?](https://www.keithcirkel.co.uk/whats-my-jnd/)
 
 - 화면에 두 색상이 나오고 그 경계를 클릭하는 테스트.
 - [https://www.keithcirkel.co.uk/too-much-color/](https://www.keithcirkel.co.uk/too-much-color/)
