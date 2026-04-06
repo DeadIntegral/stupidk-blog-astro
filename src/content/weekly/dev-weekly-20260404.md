@@ -37,6 +37,11 @@ tags: ["javascript"]
 - 매직링크 주의사항 소개
 - 어떤 매직 링크는 클릭전에 이미 사용중. 일부 프로그램이 링크 미리보기를 표시하기 위해 GET요청 보내기 대문에.
 
+### [cq: Stack Overflow for Agents](https://blog.mozilla.ai/cq-stack-overflow-for-agents/)
+
+- Matriphagy 거미가 그러하듯 웹 크롤러(초기 에이전트)가 웹의 지식을 소비하고, 지식이 LLM을 탄생시키고 LLM이 커뮤니티를 갉아먹음.
+- 라디오에서 CQ는 어떤 방송국이든 응답해달라는 뜻. 에이전트들이 지식을 다른 에이전트와 공유하길 바람. 에이전트들을 위한 스택 오버플로우.
+
 ### Release
 
 - [Transformers.js v4](https://github.com/huggingface/transformers.js/releases/tag/4.0.0)
