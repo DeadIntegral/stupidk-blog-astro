@@ -17,7 +17,7 @@ tags: ["javascript", "nodejs"]
 
 ### [Post Mortem: axios npm supply chain compromise](https://github.com/axios/axios/issues/10636)
 
-- axios 공급망 공격 영향, 사후대응, 어택 타임라인, 교휸 등
+- axios 공급망 공격 영향, 사후대응, 어택 타임라인, 교훈 등
 
 ### [boneyard: Auto generated skeleton loading framework](https://github.com/0xGF/boneyard)
 
