@@ -4,7 +4,6 @@ date: "2026-04-11T21:24:00.000Z"
 description: "dev-weekly 2026-04-11"
 tags: ["javascript", "nodejs"]
 ---
-# 20260411
 
 # Javascript
 
