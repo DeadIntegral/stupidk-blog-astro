@@ -1,6 +1,6 @@
 ---
 title: JS Memory Model
-date: "2023-04-06T00:00:00.000Z"
+date: "2023-04-06T00:00:00+09:00"
 description: "JS Memory Modal by rsc"
 tags: ["javascript"]
 ---

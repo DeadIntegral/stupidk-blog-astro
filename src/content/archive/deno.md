@@ -1,6 +1,6 @@
 ---
 title: Deno
-date: "2024-01-25T00:00:00.000Z"
+date: "2024-01-25T00:00:00+09:00"
 description: "Deno Archive"
 tags: ["javascript", "deno", "fresh"]
 ---

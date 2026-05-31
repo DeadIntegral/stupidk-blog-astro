@@ -1,6 +1,6 @@
 ---
 title: Typescript Archive
-date: "2023-11-20T00:00:00.000Z"
+date: "2023-11-20T00:00:00+09:00"
 description: "Typescript Update History"
 tags: ["javascript", "typescript"]
 ---

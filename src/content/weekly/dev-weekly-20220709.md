@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2022-07-09
-date: "2022-07-09T15:15:00.000Z"
+date: "2022-07-09T15:15:00+09:00"
 description: "dev-weekly 2022-07-09"
 tags: ["javascript", "css", "node"]
 ---

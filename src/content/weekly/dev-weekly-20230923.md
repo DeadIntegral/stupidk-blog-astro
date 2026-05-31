@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2023-09-23
-date: "2023-09-23T10:45:00.000Z"
+date: "2023-09-23T10:45:00+09:00"
 description: "dev-weekly 2023-09-23"
 tags: ["javascript", "node", "css"]
 ---

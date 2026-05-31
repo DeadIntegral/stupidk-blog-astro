@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2021-12-25 - 연말이라 js, node 2주간 쉽니당
-date: "2021-12-25T10:00:00.000Z"
+date: "2021-12-25T10:00:00+09:00"
 description: "dev-weekly 2021-12-25"
 tags: ["css"]
 ---

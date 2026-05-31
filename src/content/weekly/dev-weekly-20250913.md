@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2025-09-13
-date: "2025-09-13T20:13:00.000Z"
+date: "2025-09-13T20:13:00+09:00"
 description: "dev-weekly 2025-09-13"
 tags: ["css", "nodejs", "javascript", "bun", "deno"]
 ---

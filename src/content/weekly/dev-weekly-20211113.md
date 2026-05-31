@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2021-11-13
-date: "2021-11-13T10:00:00.000Z"
+date: "2021-11-13T10:00:00+09:00"
 description: "dev-weekly 2021-11-13"
 tags: ["javascript", "node", "css"]
 ---
