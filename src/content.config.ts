@@ -1,22 +1,33 @@
-import { defineCollection, z } from "astro:content";
+import { defineCollection, z } from 'astro:content';
+import { glob } from 'astro/loaders';
+
+const baseSchema = z.object({
+  title: z.string(),
+  description: z.string().optional(),
+  date: z.coerce.date(),
+  updatedDate: z.coerce.date().optional(),
+  tags: z.array(z.string()).optional(),
+  heroImage: z.string().optional(),
+});
 
 const archive = defineCollection({
-  // Define the schema and other options for the archive collection
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/archive' }),
+  schema: baseSchema,
 });
 
 const weekly = defineCollection({
-  // Define the schema and other options for the weekly collection
+  loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/weekly' }),
+  schema: baseSchema,
 });
 
 const blog = defineCollection({
-  // Define the schema and other options for the blog collection
-  schema: z.object({
-    title: z.string(),
+  loader: glob({
+    pattern: '**/*.{md,mdx}',
+    base: './src/content/blog',
+    generateId: ({ entry }) => entry.replace(/\.(md|mdx)$/, ''),
+  }),
+  schema: baseSchema.extend({
     description: z.string(),
-    // Transform string to Date object
-    date: z.coerce.date(),
-    updatedDate: z.coerce.date().optional(),
-    heroImage: z.string().optional(),
   }),
 });
 
