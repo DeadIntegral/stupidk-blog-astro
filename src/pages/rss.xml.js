@@ -3,10 +3,9 @@ import { getCollection } from 'astro:content';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 
 export async function GET(context) {
-  const [blogs, weeklys, archives] = await Promise.all([
+  const [blogs, weeklys] = await Promise.all([
     getCollection('blog'),
     getCollection('weekly'),
-    getCollection('archive'),
   ]);
 
   const toItem = (prefix) => (post) => ({
@@ -19,7 +18,6 @@ export async function GET(context) {
   const items = [
     ...blogs.map(toItem('blog')),
     ...weeklys.map(toItem('weekly')),
-    ...archives.map(toItem('archive')),
   ].sort((a, b) => new Date(b.pubDate).getTime() - new Date(a.pubDate).getTime());
 
   return rss({
