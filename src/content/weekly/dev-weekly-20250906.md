@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2025-09-06
-date: "2025-09-06T21:30:00.000Z"
+date: "2025-09-06T21:30:00+09:00"
 description: "dev-weekly 2025-09-06"
 tags: ["javascript", "browser", "chrome"]
 ---

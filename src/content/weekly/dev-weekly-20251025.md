@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2025-10-25
-date: "2025-10-25T18:20:00.000Z"
+date: "2025-10-25T18:20:00+09:00"
 description: "dev-weekly 2025-10-25"
 tags: ["javascript", "nodejs", "vitest", "biome"]
 ---

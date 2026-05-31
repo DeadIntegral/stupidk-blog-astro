@@ -1,6 +1,6 @@
 ---
 title: Software Engineering - The Soft Parts 번역
-date: "2023-04-17T01:55:00.000Z"
+date: "2023-04-17T01:55:00+09:00"
 description: "Software Engineering - The Soft Parts 번역"
 tags: ["translate"]
 ---

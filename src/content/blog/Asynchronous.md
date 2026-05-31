@@ -1,6 +1,6 @@
 ---
 title: Asynchronous
-date: "2023-03-30T00:00:00.000Z"
+date: "2023-03-30T00:00:00+09:00"
 description: "Asynchronous"
 tags: ["Asynchronous"]
 ---

@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2025-09-20
-date: "2025-09-20T18:55:00.000Z"
+date: "2025-09-20T18:55:00+09:00"
 description: "dev-weekly 2025-09-20"
 tags: ["javascript", "npm", "wasm"]
 ---

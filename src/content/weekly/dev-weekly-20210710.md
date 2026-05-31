@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2021-07-10
-date: "2021-07-10T14:00:00.000Z"
+date: "2021-07-10T14:00:00+09:00"
 description: "dev-weekly 2021-07-10"
 tags: ["javascript", "node", "deno", "go"]
 ---
