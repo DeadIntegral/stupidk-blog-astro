@@ -10,14 +10,10 @@ export default defineConfig({
   integrations: [mdx(), sitemap()],
   redirects: {},
   markdown: {
-    rehypePlugins: [
-      [
-        rehypeExternalLinks,
-        {
-          target: '_blank',
-          rel: ['noopener', 'noreferrer'],
-        },
-      ],
-    ],
+    unified: (u) =>
+      u.use(rehypeExternalLinks, {
+        target: '_blank',
+        rel: ['noopener', 'noreferrer'],
+      }),
   },
 });

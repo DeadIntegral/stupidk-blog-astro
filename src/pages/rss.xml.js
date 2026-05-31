@@ -12,7 +12,7 @@ export async function GET(context) {
     title: post.data.title,
     pubDate: post.data.date,
     description: post.data.description ?? '',
-    link: `/${prefix}/${post.slug}/`,
+    link: `/${prefix}/${post.id}/`,
   });
 
   const items = [
