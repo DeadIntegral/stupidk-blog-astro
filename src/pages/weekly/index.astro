@@ -27,7 +27,13 @@ const posts = (await getCollection('weekly')).sort(
               <li>
                 <a href={`/weekly/${post.slug}/`}>
                   <h4 class="title">{post.data.title}</h4>
-                  <p>{post.data.tags.join(' ')}</p>
+                  {post.data.tags?.length > 0 && (
+                    <p class="tags">
+                      {post.data.tags.map((tag: string) => (
+                        <span class="tag">#{tag}</span>
+                      ))}
+                    </p>
+                  )}
                   <p class="date">
                     <FormattedDate date={post.data.date} />
                   </p>

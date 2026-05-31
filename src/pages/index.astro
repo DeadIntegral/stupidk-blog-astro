@@ -15,16 +15,72 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
   <body>
     <Header title={SITE_TITLE} />
     <main>
-      <h1>Blog Migration</h1>
-      <p>gastbyjs 에서 astro (blog template)로 이전.</p>
-      <p>
-        <h2>메뉴 설명</h2>
-        <ul>
-          <li>Blog: 직접 작성한 글 모음. 소급적용[WIP]</li>
-          <li>Weekly: 매주 공부한 문서들 요약 및 링크</li>
-        </ul>
-      </p>
+      <section class="menu">
+        <div class="menu-grid">
+          <a class="menu-card" href="/blog">
+            <span class="menu-label">Blog</span>
+            <span class="menu-desc">직접 작성한 글 모음 (소급적용 WIP)</span>
+          </a>
+          <a class="menu-card" href="/weekly">
+            <span class="menu-label">Weekly</span>
+            <span class="menu-desc">매주 공부한 문서들의 요약과 링크</span>
+          </a>
+          <a class="menu-card" href="/archive">
+            <span class="menu-label">Archive</span>
+            <span class="menu-desc">예전 글, 회고, 자료들</span>
+          </a>
+        </div>
+      </section>
     </main>
     <Footer />
   </body>
 </html>
+
+<style>
+  .menu {
+    margin-top: 1.5rem;
+  }
+  .menu-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 0.85rem;
+  }
+  .menu-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    padding: 1.1rem 1.25rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    background: var(--bg-elevated);
+    text-decoration: none;
+    color: var(--text);
+    transition: border-color 0.18s ease, transform 0.18s ease, box-shadow 0.18s ease;
+  }
+  .menu-card:hover {
+    border-color: var(--border-strong);
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+    text-decoration: none;
+  }
+  .menu-label {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text);
+  }
+  .menu-card:hover .menu-label {
+    color: var(--accent);
+  }
+  .menu-desc {
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    line-height: 1.5;
+  }
+
+  @media (max-width: 720px) {
+    .menu-grid {
+      grid-template-columns: 1fr;
+      gap: 0.7rem;
+    }
+  }
+</style>
