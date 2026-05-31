@@ -17,14 +17,15 @@ const { title, description, date, updatedDate, heroImage } = Astro.props;
     <style>
       .weekly-prose {
         width: 840px;
-        max-width: calc(100% - 2em);
-        margin: auto;
-        padding: 1em;
-        color: rgb(var(--gray-dark));
+        max-width: 100%;
+        margin: 0 auto;
+        padding: 2rem 1.25rem 4rem;
+        color: var(--text);
       }
-      .date {
-        margin-bottom: 1rem;
-        color: rgb(var(--gray));
+      @media (max-width: 720px) {
+        .weekly-prose {
+          padding: 1.5rem 1rem 3rem;
+        }
       }
     </style>
   </head>
