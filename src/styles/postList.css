@@ -51,6 +51,46 @@ ul li .date {
   color: var(--text-faint);
 }
 
+/* 카드 안 글 목록 미리보기 (weekly) — 전역 ul grid 스타일을 재설정 */
+ul li .preview {
+  display: block;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+ul li .preview li {
+  position: relative;
+  padding-left: 0.85rem;
+  margin: 0.25rem 0;
+  font-size: 0.8125rem;
+  line-height: 1.45;
+  color: var(--text-muted);
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+ul li .preview li::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 0.55em;
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--text-faint);
+}
+ul li .preview li.more {
+  color: var(--text-faint);
+  font-size: 0.75rem;
+}
+ul li .preview li.more::before {
+  display: none;
+}
+ul li a:hover .preview li {
+  color: var(--text);
+}
+
 ul li .tags {
   margin: 0;
   font-size: 0.8125rem;
