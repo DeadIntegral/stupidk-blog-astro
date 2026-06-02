@@ -1,0 +1,356 @@
+---
+// 검색: 네이티브 <dialog> + Pagefind JS API 직접 렌더링 (blog + weekly 인덱스).
+// 헤더 아이콘 또는 ⌘K / Ctrl+K 로 열린다.
+// 결과 정렬: 정확도(score) 우선, 동점이면 최신 날짜순.
+---
+
+<button
+  id="pf-search-trigger"
+  class="pf-search-trigger"
+  type="button"
+  aria-label="검색"
+  aria-haspopup="dialog"
+>
+  <svg
+    class="pf-search-icon"
+    width="18"
+    height="18"
+    viewBox="0 0 24 24"
+    fill="none"
+    stroke="currentColor"
+    stroke-width="2"
+    stroke-linecap="round"
+    stroke-linejoin="round"
+    aria-hidden="true"
+  >
+    <circle cx="11" cy="11" r="7"></circle>
+    <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+  </svg>
+  <kbd class="pf-search-kbd">⌘K</kbd>
+</button>
+
+<dialog id="pf-search-dialog" class="pf-search-dialog" aria-label="검색">
+  <form class="pf-form" role="search" onsubmit="return false">
+    <svg
+      class="pf-form-icon"
+      width="18"
+      height="18"
+      viewBox="0 0 24 24"
+      fill="none"
+      stroke="currentColor"
+      stroke-width="2"
+      stroke-linecap="round"
+      stroke-linejoin="round"
+      aria-hidden="true"
+    >
+      <circle cx="11" cy="11" r="7"></circle>
+      <line x1="21" y1="21" x2="16.65" y2="16.65"></line>
+    </svg>
+    <input
+      id="pf-input"
+      class="pf-input"
+      type="search"
+      autocomplete="off"
+      placeholder="blog · weekly 검색…"
+      aria-label="검색어"
+    />
+  </form>
+  <div id="pf-results" class="pf-results" aria-live="polite"></div>
+</dialog>
+
+<script>
+  const trigger = document.getElementById('pf-search-trigger');
+  const dialog = document.getElementById('pf-search-dialog') as HTMLDialogElement | null;
+  const input = document.getElementById('pf-input') as HTMLInputElement | null;
+  const resultsEl = document.getElementById('pf-results');
+
+  let pf: any = null;
+  let pfLoading: Promise<any> | null = null;
+
+  function ensurePagefind() {
+    if (pf) return Promise.resolve(pf);
+    if (!pfLoading) {
+      pfLoading = (async () => {
+        // 경로를 런타임 변수로 만들어 번들러가 정적 분석/해결하지 못하게 한다.
+        const url = `${location.origin}/pagefind/pagefind.js`;
+        const mod = await import(/* @vite-ignore */ url);
+        await mod.options({ bundlePath: '/pagefind/' });
+        await mod.init();
+        pf = mod;
+        return mod;
+      })().catch((e) => {
+        pfLoading = null;
+        console.error(
+          '[search] Pagefind 인덱스를 불러오지 못했어요. `astro build` 로 인덱스를 먼저 생성하세요.',
+          e
+        );
+        throw e;
+      });
+    }
+    return pfLoading;
+  }
+
+  function esc(s: string) {
+    return s.replace(/[&<>"]/g, (c) =>
+      c === '&' ? '&amp;' : c === '<' ? '&lt;' : c === '>' ? '&gt;' : '&quot;'
+    );
+  }
+
+  function dateValue(meta: Record<string, string> | undefined) {
+    const raw = meta && meta.date;
+    const t = raw ? Date.parse(raw) : NaN;
+    return Number.isNaN(t) ? 0 : t;
+  }
+
+  function fmtDate(raw: string) {
+    const t = Date.parse(raw);
+    if (Number.isNaN(t)) return '';
+    return new Date(t).toLocaleDateString('ko-KR', {
+      year: 'numeric',
+      month: 'short',
+      day: 'numeric',
+    });
+  }
+
+  function setMessage(html: string) {
+    if (resultsEl) resultsEl.innerHTML = `<p class="pf-message">${html}</p>`;
+  }
+
+  let activeTerm = '';
+
+  async function runSearch(term: string) {
+    if (!resultsEl) return;
+    if (!term) {
+      resultsEl.innerHTML = '';
+      return;
+    }
+    let lib;
+    try {
+      lib = await ensurePagefind();
+    } catch {
+      setMessage('검색 인덱스를 불러오지 못했어요.');
+      return;
+    }
+    if (term !== activeTerm) return; // 입력이 더 최신이면 중단
+
+    const search = await lib.search(term);
+    if (term !== activeTerm) return;
+
+    // 상위 결과의 메타까지 받아온 뒤 정확도 → 최신 날짜 순으로 보정
+    const top = search.results.slice(0, 30);
+    const items = await Promise.all(
+      top.map(async (r: any) => ({ score: r.score, data: await r.data() }))
+    );
+    if (term !== activeTerm) return;
+
+    items.sort((a, b) => b.score - a.score || dateValue(b.data.meta) - dateValue(a.data.meta));
+
+    if (!items.length) {
+      setMessage(`"${esc(term)}" 검색 결과가 없어요`);
+      return;
+    }
+
+    resultsEl.innerHTML = items
+      .map(({ data }) => {
+        const title = esc(data.meta?.title || data.url);
+        const date = data.meta?.date ? fmtDate(data.meta.date) : '';
+        return `
+          <a class="pf-result" href="${data.url}">
+            <span class="pf-result-title">${title}</span>
+            <span class="pf-result-excerpt">${data.excerpt}</span>
+            ${date ? `<span class="pf-result-date">${date}</span>` : ''}
+          </a>`;
+      })
+      .join('');
+    resultsEl.scrollTop = 0;
+  }
+
+  let debounce: ReturnType<typeof setTimeout>;
+  input?.addEventListener('input', () => {
+    activeTerm = input.value.trim();
+    clearTimeout(debounce);
+    debounce = setTimeout(() => runSearch(activeTerm), 160);
+  });
+
+  function openDialog() {
+    if (!dialog) return;
+    ensurePagefind().catch(() => {});
+    if (!dialog.open) dialog.showModal();
+    requestAnimationFrame(() => input?.focus());
+  }
+
+  function closeDialog() {
+    if (dialog?.open) dialog.close();
+  }
+
+  trigger?.addEventListener('click', openDialog);
+
+  // 배경(backdrop) 클릭 시 닫기
+  dialog?.addEventListener('click', (e) => {
+    if (e.target === dialog) closeDialog();
+  });
+
+  // ⌘K / Ctrl+K 로 열고 닫기
+  document.addEventListener('keydown', (e) => {
+    if ((e.metaKey || e.ctrlKey) && e.key.toLowerCase() === 'k') {
+      e.preventDefault();
+      dialog?.open ? closeDialog() : openDialog();
+    }
+  });
+</script>
+
+<style is:global>
+  /* 헤더 트리거 버튼 */
+  .pf-search-trigger {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    height: 36px;
+    padding: 0 0.6rem;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .pf-search-trigger:hover {
+    color: var(--text);
+    background: var(--bg-soft);
+    border-color: var(--border-strong);
+  }
+  .pf-search-icon {
+    flex: none;
+  }
+  .pf-search-kbd {
+    font-family: var(--font-mono);
+    font-size: 0.7rem;
+    line-height: 1;
+    padding: 0.2rem 0.35rem;
+    color: var(--text-faint);
+    background: var(--bg-soft);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+  }
+
+  /* 모달: 입력은 고정, 결과만 스크롤 */
+  .pf-search-dialog {
+    width: min(640px, 92vw);
+    max-height: 78vh;
+    margin: 10vh auto auto;
+    padding: 0;
+    color: var(--text);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+    overflow: hidden;
+  }
+  .pf-search-dialog[open] {
+    display: flex;
+    flex-direction: column;
+  }
+  .pf-search-dialog::backdrop {
+    background: color-mix(in srgb, #000 55%, transparent);
+    backdrop-filter: blur(2px);
+  }
+
+  .pf-form {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    flex: none;
+    padding: 0.85rem 1rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .pf-form-icon {
+    flex: none;
+    color: var(--text-faint);
+  }
+  .pf-input {
+    flex: 1;
+    min-width: 0;
+    border: none;
+    outline: none;
+    background: transparent;
+    color: var(--text);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+  }
+  .pf-input::placeholder {
+    color: var(--text-faint);
+  }
+  /* 검색 input 의 기본 X 버튼은 두되 색만 정리 */
+  .pf-input::-webkit-search-cancel-button {
+    cursor: pointer;
+  }
+
+  .pf-results {
+    flex: 1;
+    min-height: 0;
+    overflow-y: auto;
+    overscroll-behavior: contain;
+    padding: 0.5rem;
+  }
+  .pf-message {
+    margin: 0;
+    padding: 1.5rem 1rem;
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+  }
+
+  .pf-result {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+    padding: 0.7rem 0.75rem;
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    color: var(--text);
+  }
+  .pf-result:hover,
+  .pf-result:focus-visible {
+    background: var(--bg-soft);
+    text-decoration: none;
+    outline: none;
+  }
+  .pf-result-title {
+    font-weight: 600;
+    font-size: 0.95rem;
+    line-height: 1.4;
+  }
+  .pf-result-excerpt {
+    font-size: 0.85rem;
+    line-height: 1.5;
+    color: var(--text-muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+  .pf-result-excerpt mark {
+    background: color-mix(in srgb, var(--accent) 28%, transparent);
+    color: inherit;
+    border-radius: 3px;
+    padding: 0 0.1em;
+  }
+  .pf-result-date {
+    font-size: 0.75rem;
+    color: var(--text-faint);
+  }
+
+  @media (max-width: 720px) {
+    .pf-search-kbd {
+      display: none;
+    }
+    .pf-search-trigger {
+      padding: 0 0.5rem;
+    }
+    .pf-search-dialog {
+      width: 94vw;
+      max-height: 82vh;
+      margin: 6vh auto auto;
+    }
+  }
+</style>
