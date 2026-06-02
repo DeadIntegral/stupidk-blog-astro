@@ -1,0 +1,142 @@
+---
+interface Props {
+  currentPage: number;
+  lastPage: number;
+  prevUrl?: string;
+  nextUrl?: string;
+  /** 페이지 1의 경로 (예: "/weekly") */
+  baseUrl: string;
+}
+
+const { currentPage, lastPage, prevUrl, nextUrl, baseUrl } = Astro.props;
+
+const pageUrl = (n: number) => (n === 1 ? `${baseUrl}/` : `${baseUrl}/${n}/`);
+
+// 1, 마지막, 현재 ±1 페이지만 노출하고 나머지는 생략(...) 처리
+const WINDOW = 1;
+const items: (number | 'gap')[] = [];
+for (let n = 1; n <= lastPage; n++) {
+  const visible =
+    n === 1 ||
+    n === lastPage ||
+    (n >= currentPage - WINDOW && n <= currentPage + WINDOW);
+  if (visible) {
+    items.push(n);
+  } else if (items[items.length - 1] !== 'gap') {
+    items.push('gap');
+  }
+}
+---
+
+{
+  lastPage > 1 && (
+    <nav class="pagination" aria-label="페이지 탐색">
+      {prevUrl ? (
+        <a class="nav-btn" href={prevUrl} rel="prev" aria-label="이전 페이지">
+          ←
+        </a>
+      ) : (
+        <span class="nav-btn disabled" aria-hidden="true">
+          ←
+        </span>
+      )}
+
+      <ul class="pages">
+        {items.map((item) =>
+          item === 'gap' ? (
+            <li class="gap" aria-hidden="true">
+              …
+            </li>
+          ) : item === currentPage ? (
+            <li>
+              <span class="page current" aria-current="page">
+                {item}
+              </span>
+            </li>
+          ) : (
+            <li>
+              <a class="page" href={pageUrl(item)}>
+                {item}
+              </a>
+            </li>
+          )
+        )}
+      </ul>
+
+      {nextUrl ? (
+        <a class="nav-btn" href={nextUrl} rel="next" aria-label="다음 페이지">
+          →
+        </a>
+      ) : (
+        <span class="nav-btn disabled" aria-hidden="true">
+          →
+        </span>
+      )}
+    </nav>
+  )
+}
+
+<style>
+  .pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    margin: 2.5rem 0 0.5rem;
+  }
+  .pages {
+    display: flex;
+    align-items: center;
+    gap: 0.3rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .page,
+  .nav-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    min-width: 36px;
+    height: 36px;
+    padding: 0 0.55rem;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--bg-elevated);
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    font-weight: 500;
+    text-decoration: none;
+    transition: border-color 0.15s ease, color 0.15s ease, background 0.15s ease;
+  }
+  a.page:hover,
+  a.nav-btn:hover {
+    border-color: var(--border-strong);
+    color: var(--text);
+    text-decoration: none;
+  }
+  .page.current {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--bg);
+    font-weight: 600;
+  }
+  .nav-btn.disabled {
+    opacity: 0.4;
+    cursor: default;
+  }
+  .gap {
+    min-width: 1.25rem;
+    text-align: center;
+    color: var(--text-faint);
+    user-select: none;
+  }
+  @media (max-width: 720px) {
+    .page,
+    .nav-btn {
+      min-width: 32px;
+      height: 32px;
+      font-size: 0.8125rem;
+    }
+  }
+</style>

@@ -1,0 +1,81 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Header from '../../components/Header.astro';
+import Footer from '../../components/Footer.astro';
+import Pagination from '../../components/Pagination.astro';
+import { SITE_TITLE, SITE_DESCRIPTION } from '../../consts';
+import { getCollection } from 'astro:content';
+import type { GetStaticPaths } from 'astro';
+import FormattedDate from '../../components/FormattedDate.astro';
+import { extractArticlePreview } from '../../utils/weekly';
+import '../../styles/postList.css';
+
+export const getStaticPaths = (async ({ paginate }) => {
+  const posts = (await getCollection('weekly')).sort(
+    (a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime()
+  );
+  const items = posts.map((post) => ({
+    id: post.id,
+    data: post.data,
+    preview: extractArticlePreview(post.body ?? '', 2),
+  }));
+  return paginate(items, { pageSize: 12 });
+}) satisfies GetStaticPaths;
+
+const { page } = Astro.props;
+---
+
+<!doctype html>
+<html lang="ko">
+  <head>
+    <BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+  </head>
+  <body>
+    <Header />
+    <main>
+      <section>
+        <ul>
+          {
+            page.data.map((post) => (
+              <li>
+                <a href={`/weekly/${post.id}/`}>
+                  <h4 class="title">{post.data.title}</h4>
+                  {post.preview.titles.length > 0 && (
+                    <ul class="preview">
+                      {post.preview.titles.map((t) => (
+                        <li>{t}</li>
+                      ))}
+                      {post.preview.total > post.preview.titles.length && (
+                        <li class="more">
+                          외 {post.preview.total - post.preview.titles.length}개
+                        </li>
+                      )}
+                    </ul>
+                  )}
+                  {post.data.tags?.length > 0 && (
+                    <p class="tags">
+                      {post.data.tags.map((tag: string) => (
+                        <span class="tag">#{tag}</span>
+                      ))}
+                    </p>
+                  )}
+                  <p class="date">
+                    <FormattedDate date={post.data.date} />
+                  </p>
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+        <Pagination
+          currentPage={page.currentPage}
+          lastPage={page.lastPage}
+          prevUrl={page.url.prev}
+          nextUrl={page.url.next}
+          baseUrl="/weekly"
+        />
+      </section>
+    </main>
+    <Footer />
+  </body>
+</html>
