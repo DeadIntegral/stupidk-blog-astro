@@ -1,13 +1,18 @@
 ---
 interface Props {
   date: Date;
+  /** true 면 Pagefind 가 정렬용으로 읽을 수 있도록 date 메타(datetime 값)를 노출 */
+  pagefindMeta?: boolean;
 }
 
-const { date } = Astro.props;
+const { date, pagefindMeta = false } = Astro.props;
 const parsedDate = new Date(date);
 ---
 
-<time datetime={parsedDate.toISOString()}>
+<time
+  datetime={parsedDate.toISOString()}
+  data-pagefind-meta={pagefindMeta ? 'date[datetime]' : undefined}
+>
   {
     parsedDate.toLocaleDateString('ko-KR', {
       year: 'numeric',

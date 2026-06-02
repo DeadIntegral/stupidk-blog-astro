@@ -1,5 +1,6 @@
 ---
 import HeaderLink from './HeaderLink.astro';
+import Search from './Search.astro';
 import { SITE_TITLE } from '../consts';
 ---
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-Z0RKTW6K2K"></script>
@@ -17,6 +18,9 @@ import { SITE_TITLE } from '../consts';
       <HeaderLink href="/blog">Blog</HeaderLink>
       <HeaderLink href="/weekly">Weekly</HeaderLink>
       <HeaderLink href="/archive">Archive</HeaderLink>
+    </div>
+    <div class="search">
+      <Search />
     </div>
     <div class="social-links">
       <a href="https://github.com/deadintegral/stupidk-blog-astro" target="_blank" aria-label="GitHub">
@@ -97,6 +101,10 @@ import { SITE_TITLE } from '../consts';
     background: color-mix(in srgb, var(--accent) 10%, transparent);
     text-decoration: none;
     font-weight: 600;
+  }
+  .search {
+    display: flex;
+    align-items: center;
   }
   .social-links {
     display: flex;
