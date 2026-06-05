@@ -2,7 +2,17 @@
 import BaseHead from '../components/BaseHead.astro';
 import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
+import { getCollection } from 'astro:content';
+
+const recent = async (name: 'weekly' | 'blog', n: number) =>
+  (await getCollection(name))
+    .sort((a, b) => new Date(b.data.date).getTime() - new Date(a.data.date).getTime())
+    .slice(0, n);
+
+const recentWeekly = await recent('weekly', 6);
+const recentBlog = await recent('blog', 5);
 ---
 
 <!doctype html>
@@ -29,6 +39,50 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
             <span class="menu-label">Archive</span>
             <span class="menu-desc">예전 글, 회고, 자료들</span>
           </a>
+        </div>
+      </section>
+
+      <section class="recent">
+        <div class="recent-col">
+          <div class="recent-head">
+            <h2>Recent Weekly</h2>
+            <a href="/weekly">더 보기 →</a>
+          </div>
+          <ul>
+            {
+              recentWeekly.map((post) => (
+                <li>
+                  <a href={`/weekly/${post.id}/`}>
+                    <span class="r-title">{post.data.title}</span>
+                    <span class="r-date">
+                      <FormattedDate date={post.data.date} />
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
+        </div>
+
+        <div class="recent-col">
+          <div class="recent-head">
+            <h2>Recent Blog</h2>
+            <a href="/blog">더 보기 →</a>
+          </div>
+          <ul>
+            {
+              recentBlog.map((post) => (
+                <li>
+                  <a href={`/blog/${post.id}/`}>
+                    <span class="r-title">{post.data.title}</span>
+                    <span class="r-date">
+                      <FormattedDate date={post.data.date} />
+                    </span>
+                  </a>
+                </li>
+              ))
+            }
+          </ul>
         </div>
       </section>
     </main>
@@ -77,10 +131,79 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
     line-height: 1.5;
   }
 
+  .recent {
+    margin-top: 2.25rem;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 1.5rem 2rem;
+  }
+  .recent-head {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.5rem;
+    margin-bottom: 0.6rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
+  }
+  .recent-head h2 {
+    margin: 0;
+    font-size: 1rem;
+    font-weight: 700;
+    letter-spacing: -0.01em;
+  }
+  .recent-head a {
+    font-size: 0.8125rem;
+    color: var(--text-muted);
+    text-decoration: none;
+    white-space: nowrap;
+  }
+  .recent-head a:hover {
+    color: var(--accent);
+  }
+  .recent-col ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .recent-col li a {
+    display: flex;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.75rem;
+    padding: 0.5rem 0.25rem;
+    border-radius: var(--radius-sm);
+    text-decoration: none;
+    color: var(--text);
+  }
+  .recent-col li a:hover {
+    background: var(--bg-soft);
+    text-decoration: none;
+  }
+  .recent-col li a:hover .r-title {
+    color: var(--accent);
+  }
+  .r-title {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    font-size: 0.9rem;
+  }
+  .r-date {
+    flex: none;
+    font-size: 0.75rem;
+    color: var(--text-faint);
+  }
+
   @media (max-width: 720px) {
     .menu-grid {
       grid-template-columns: 1fr;
       gap: 0.7rem;
+    }
+    .recent {
+      grid-template-columns: 1fr;
+      gap: 1.75rem;
     }
   }
 </style>
