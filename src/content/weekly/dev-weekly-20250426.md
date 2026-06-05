@@ -2,7 +2,7 @@
 title: dev-weekly 2025-04-26
 date: "2025-04-26T23:40:00+09:00"
 description: "dev-weekly 2025-04-26"
-tags: ["frontend", "node"]
+tags: ["node", "v8", "performance", "service-worker", "security", "react", "view-transitions"]
 ---
 
 # Node

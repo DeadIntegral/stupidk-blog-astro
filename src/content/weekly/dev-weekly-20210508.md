@@ -2,7 +2,7 @@
 title: dev-weekly 2021-05-08
 date: "2021-05-08T11:30:00+09:00"
 description: "dev-weekly 2021-05-08"
-tags: ["javascript", "css", "node"]
+tags: ["node", "css", "v8", "web-components", "react", "sqlite", "devtools"]
 ---
 # Node, CSS
 

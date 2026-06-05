@@ -2,7 +2,7 @@
 title: dev-weekly 2024-06-15
 date: "2024-06-15T17:38:00+09:00"
 description: "dev-weekly 2024-06-15"
-tags: ["css", "browser"]
+tags: ["css", "browser", "animation", "view-transitions", "safari", "lighthouse", "performance", "firefox"]
 ---
 # CSS
 

@@ -2,7 +2,7 @@
 title: dev-weekly 2022-12-10
 date: "2022-12-10T19:30:00+09:00"
 description: "dev-weekly 2022-12-10"
-tags: ["javascript", "css", "node"]
+tags: ["css", "accessibility", "vite", "npm", "prisma", "testing", "ai", "bun"]
 ---
 
 # CSS

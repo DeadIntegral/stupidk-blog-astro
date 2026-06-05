@@ -2,7 +2,7 @@
 title: dev-weekly 2021-06-05
 date: "2021-06-05T10:10:00+09:00"
 description: "dev-weekly 2021-06-05"
-tags: ["javascript", "node"]
+tags: ["javascript", "node", "electron", "v8", "wasm", "svelte", "postgres"]
 ---
 
 # Node

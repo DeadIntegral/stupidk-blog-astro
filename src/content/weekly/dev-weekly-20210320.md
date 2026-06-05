@@ -2,7 +2,7 @@
 title: dev-weekly 2021-03-20
 date: "2021-03-20T09:10:00+09:00"
 description: "dev-weekly 2021-03-20"
-tags: ["javascript", "css", "go", "db"]
+tags: ["css", "v8", "go", "database", "performance", "regex", "tailwind", "react"]
 ---
 
 # CSS, DB, GO, Etc

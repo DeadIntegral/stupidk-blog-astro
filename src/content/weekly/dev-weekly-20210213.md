@@ -2,7 +2,7 @@
 title: dev-weekly 2021-02-13
 date: "2021-02-13T09:00:00+09:00"
 description: "dev-weekly 2021-02-13"
-tags: ["javascript", "css", "node", "web", "typescript", "deno"]
+tags: ["deno", "css", "node", "animation", "font", "typescript", "security", "performance"]
 ---
 
 # Deno, CSS, Repl.it

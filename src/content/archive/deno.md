@@ -2,7 +2,7 @@
 title: Deno
 date: "2024-01-25T00:00:00+09:00"
 description: "Deno Archive"
-tags: ["javascript", "deno", "fresh"]
+tags: ["deno", "javascript", "typescript", "node", "runtime", "webgpu"]
 ---
 
 # deno

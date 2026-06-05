@@ -2,7 +2,7 @@
 title: Typescript Archive
 date: "2023-11-20T00:00:00+09:00"
 description: "Typescript Update History"
-tags: ["javascript", "typescript"]
+tags: ["typescript", "javascript", "decorator", "jsx", "compiler"]
 ---
 
 ### **[2023.11.20 - Announcing TypeScript 5.3](https://devblogs.microsoft.com/typescript/announcing-typescript-5-3/)**

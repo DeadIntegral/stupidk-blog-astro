@@ -2,7 +2,7 @@
 title: dev-weekly 2022-07-16
 date: "2022-07-16T15:15:00+09:00"
 description: "dev-weekly 2022-07-16"
-tags: ["javascript", "node"]
+tags: ["node", "javascript", "esm", "vite", "nestjs", "esbuild", "react"]
 ---
 
 # Node

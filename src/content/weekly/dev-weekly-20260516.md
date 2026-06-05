@@ -2,7 +2,7 @@
 title: dev-weekly 2026-05-16
 date: "2026-05-16T21:31:00+09:00"
 description: "dev-weekly 2026-05-16"
-tags: ["javascript", "nodejs"]
+tags: ["javascript", "node", "compiler", "v8", "pwa", "devtools", "http", "browser"]
 ---
 
 # Javascript

@@ -2,7 +2,7 @@
 title: dev-weekly 2025-10-18
 date: "2025-10-18T22:21:00+09:00"
 description: "dev-weekly 2025-10-18"
-tags: ["javascript", "nodejs"]
+tags: ["node", "python", "web-components", "svg", "javascript", "vite"]
 ---
 
 # Nodejs

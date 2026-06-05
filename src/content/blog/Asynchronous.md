@@ -2,7 +2,7 @@
 title: Asynchronous
 date: "2023-03-30T00:00:00+09:00"
 description: "Asynchronous"
-tags: ["Asynchronous"]
+tags: ["event-loop", "epoll", "io-uring", "node", "libuv", "rust"]
 ---
 
 # 비동기

@@ -2,7 +2,7 @@
 title: dev-weekly 2023-01-14
 date: "2023-01-14T16:20:00+09:00"
 description: "dev-weekly 2023-01-14"
-tags: ["javascript", "node"]
+tags: ["javascript", "node", "typescript", "react", "json", "scheduler", "testing", "github-copilot"]
 ---
 # Node
 

@@ -2,7 +2,7 @@
 title: dev-weekly 2025-03-08
 date: "2025-03-08T12:19:00+09:00"
 description: "dev-weekly 2025-03-08"
-tags: ["javascript", "node", "ai", "browser"]
+tags: ["css", "node", "typescript", "deno", "devtools", "ai", "performance"]
 ---
 
 # CSS

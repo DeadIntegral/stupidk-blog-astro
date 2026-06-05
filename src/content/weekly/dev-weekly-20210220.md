@@ -2,7 +2,7 @@
 title: dev-weekly 2021-02-20
 date: "2021-02-20T09:00:00+09:00"
 description: "dev-weekly 2021-02-20"
-tags: ["javascript", "css", "node", "web", "typescript", "go"]
+tags: ["go", "css", "vite", "v8", "esbuild", "deno", "security", "bundler"]
 ---
 
 # go, CSS, Node

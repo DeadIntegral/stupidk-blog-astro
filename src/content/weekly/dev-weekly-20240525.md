@@ -2,7 +2,7 @@
 title: dev-weekly 2024-05-25
 date: "2024-05-25T16:45:00+09:00"
 description: "dev-weekly 2024-05-25"
-tags: ["javascript", "node"]
+tags: ["node", "javascript", "react", "nextjs", "testing", "solid", "angular"]
 ---
 # Node
 

@@ -2,7 +2,7 @@
 title: dev-weekly 2021-05-01
 date: "2021-05-01T09:40:00+09:00"
 description: "dev-weekly 2021-05-01"
-tags: ["javascript", "css", "db"]
+tags: ["javascript", "css", "redis", "babel", "redux", "wasm", "performance", "rust"]
 ---
 
 # CSS, DB

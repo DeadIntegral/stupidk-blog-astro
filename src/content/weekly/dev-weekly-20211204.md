@@ -2,7 +2,7 @@
 title: dev-weekly 2021-12-04
 date: "2021-12-04T10:00:00+09:00"
 description: "dev-weekly 2021-12-04"
-tags: ["node", "javascript"]
+tags: ["node", "rust", "react", "angular", "vue", "svelte", "solid", "json"]
 ---
 
 

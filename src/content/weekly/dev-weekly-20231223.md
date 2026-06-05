@@ -2,7 +2,7 @@
 title: dev-weekly 2023-12-23
 date: "2023-12-23T17:10:00+09:00"
 description: "dev-weekly 2023-12-23"
-tags: ["javascript", "CSS", "browser", "v8"]
+tags: ["css", "javascript", "web-components", "svelte", "v8", "vite", "firefox", "wasm"]
 ---
 
 # CSS

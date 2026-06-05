@@ -2,7 +2,7 @@
 title: dev-weekly 2026-02-28
 date: "2026-02-28T21:58:00+09:00"
 description: "dev-weekly 2026-02-28"
-tags: ["javascript", "nodejs", "css"]
+tags: ["javascript", "node", "css", "typescript", "security", "web-components", "pwa", "npm"]
 ---
 
 # CSS

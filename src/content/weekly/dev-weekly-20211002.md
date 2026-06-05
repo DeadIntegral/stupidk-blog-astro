@@ -2,7 +2,7 @@
 title: dev-weekly 2021-10-02
 date: "2021-10-02T11:00:00+09:00"
 description: "dev-weekly 2021-10-02"
-tags: ["javascript", "node", "css"]
+tags: ["javascript", "node", "css", "postgres", "eslint", "workers", "safari"]
 ---
 
 ### **[How To Optimize CSS for Peak Site Performance](https://kinsta.com/blog/optimize-css/)**

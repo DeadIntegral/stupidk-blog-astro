@@ -2,7 +2,7 @@
 title: dev-weekly 2024-10-12
 date: "2024-10-12T17:29:00+09:00"
 description: "dev-weekly 2024-10-12"
-tags: ["javascript", "CSS", "js13kgames"]
+tags: ["css", "javascript", "firefox", "devtools", "sql", "typescript"]
 ---
 
 # CSS

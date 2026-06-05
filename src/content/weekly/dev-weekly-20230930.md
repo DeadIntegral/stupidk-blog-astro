@@ -2,7 +2,7 @@
 title: dev-weekly 2023-09-30
 date: "2023-09-30T11:35:00+09:00"
 description: "dev-weekly 2023-09-30"
-tags: ["javascript", "node", "css"]
+tags: ["css", "animation", "node", "polyfill", "fastify", "jwt", "font", "http"]
 ---
 # CSS
 

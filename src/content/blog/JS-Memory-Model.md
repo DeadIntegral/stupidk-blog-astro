@@ -2,7 +2,7 @@
 title: JS Memory Model
 date: "2023-04-06T00:00:00+09:00"
 description: "JS Memory Modal by rsc"
-tags: ["javascript"]
+tags: ["javascript", "memory-model", "concurrency", "atomic", "shared-array-buffer", "web-worker"]
 ---
 
 # JS Memory Model
