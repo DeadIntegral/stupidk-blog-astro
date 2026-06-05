@@ -2,7 +2,7 @@
 title: dev-weekly 2022-07-23
 date: "2022-07-23T08:00:00+09:00"
 description: "dev-weekly 2022-07-23"
-tags: ["javascript", "node", "css"]
+tags: ["css", "node", "javascript", "mix-blend-mode", "aspect-ratio", "security", "video"]
 ---
 
 

@@ -2,7 +2,7 @@
 title: dev-weekly 2025-01-11
 date: "2025-01-11T17:10:00+09:00"
 description: "dev-weekly 2025-01-11"
-tags: ["node", "javascript", "vscode"]
+tags: ["node", "typescript", "performance", "v8", "accessibility", "vscode"]
 ---
 
 # Node

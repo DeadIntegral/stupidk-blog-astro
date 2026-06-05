@@ -2,7 +2,7 @@
 title: dev-weekly 2023-10-07
 date: "2023-10-07T10:40:00+09:00"
 description: "dev-weekly 2023-10-07"
-tags: ["javascript", "node", "browser"]
+tags: ["webgpu", "wasm", "service-worker", "web-components", "npm", "security", "crdt", "performance"]
 ---
 # Node
 

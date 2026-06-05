@@ -2,7 +2,7 @@
 title: dev-weekly 2021-04-17
 date: "2021-04-17T10:10:00+09:00"
 description: "dev-weekly 2021-04-17"
-tags: ["javascript", "css", "go", "db"]
+tags: ["css", "accessibility", "deno", "database", "sql", "typescript", "bundler", "devtools"]
 ---
 
 

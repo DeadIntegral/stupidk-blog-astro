@@ -2,7 +2,7 @@
 title: Priority Scheduler
 date: "2023-02-07T00:00:00+09:00"
 description: "Priority Scheduler"
-tags: ["browser"]
+tags: ["browser", "event-loop", "scheduler", "react", "performance", "javascript"]
 ---
 
 # 들어가기전에

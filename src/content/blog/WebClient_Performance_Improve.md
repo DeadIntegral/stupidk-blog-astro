@@ -2,7 +2,7 @@
 title: WebClient Performance Improve
 date: "2023-05-16T00:00:00+09:00"
 description: "WebClient Performance Improve. 웹의 성능은 무엇이고, 어떤걸 개선해야 하는지에 대한 개요 문서"
-tags: ["performance", "javascript", "css", "font", "image"]
+tags: ["performance", "core-web-vital", "css", "image", "font", "browser", "lighthouse"]
 ---
 
 # Requirement

@@ -2,7 +2,7 @@
 title: dev-weekly 2026-01-10
 date: "2026-01-10T19:57:00+09:00"
 description: "dev-weekly 2026-01-10"
-tags: ["javascript", "nodejs", "bun"]
+tags: ["javascript", "bun", "runtime", "deno", "node", "esm", "html"]
 ---
 
 # Javascript

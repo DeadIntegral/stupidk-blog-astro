@@ -2,7 +2,7 @@
 title: dev-weekly 2021-03-13
 date: "2021-03-13T11:30:00+09:00"
 description: "dev-weekly 2021-03-13"
-tags: ["javascript", "css", "node", "deno", "go"]
+tags: ["node", "go", "database", "svelte", "devtools", "esbuild", "sql"]
 ---
 
 # Node, GO, DB, ETC

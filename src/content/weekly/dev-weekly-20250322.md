@@ -2,7 +2,7 @@
 title: dev-weekly 2025-03-22
 date: "2025-03-22T22:36:00+09:00"
 description: "dev-weekly 2025-03-22"
-tags: ["javascript", "css", "node"]
+tags: ["css", "eslint", "oxlint", "webpack", "node", "browser", "linter"]
 ---
 
 # CSS

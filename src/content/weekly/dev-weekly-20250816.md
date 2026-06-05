@@ -2,7 +2,7 @@
 title: dev-weekly 2025-08-16
 date: "2025-08-16T18:15:00+09:00"
 description: "dev-weekly 2025-08-16"
-tags: ["css"]
+tags: ["css", "postcss", "documentation"]
 ---
 
 # CSS

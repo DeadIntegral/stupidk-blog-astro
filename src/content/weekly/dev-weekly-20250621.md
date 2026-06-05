@@ -2,7 +2,7 @@
 title: dev-weekly 2025-06-21
 date: "2025-06-21T18:37:00+09:00"
 description: "dev-weekly 2025-06-21"
-tags: ["css", "node", "javascript", "react", "browser"]
+tags: ["css", "css-grid", "html", "biome", "eslint", "react", "performance"]
 ---
 
 # CSS

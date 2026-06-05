@@ -2,7 +2,7 @@
 title: dev-weekly 2025-02-22
 date: "2025-02-22T21:54:00+09:00"
 description: "dev-weekly 2025-02-22"
-tags: ["javascript", "deno"]
+tags: ["javascript", "deno", "typescript", "react", "html", "opentelemetry"]
 ---
 
 # Node

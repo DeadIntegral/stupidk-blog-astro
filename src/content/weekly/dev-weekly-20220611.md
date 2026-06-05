@@ -2,7 +2,7 @@
 title: dev-weekly 2022-06-11
 date: "2022-06-11T11:00:00+09:00"
 description: "dev-weekly 2022-06-11"
-tags: ["javascript", "css", "node"]
+tags: ["css", "animation", "fastify", "node", "esm", "web-components", "hydration", "vscode"]
 ---
 
 # CSS

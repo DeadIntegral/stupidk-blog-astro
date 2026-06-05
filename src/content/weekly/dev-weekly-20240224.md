@@ -2,7 +2,7 @@
 title: dev-weekly 2024-02-24
 date: "2024-02-24T17:00:00+09:00"
 description: "dev-weekly 2024-02-24"
-tags: ["javascript", "css", "chrome", "ai"]
+tags: ["css", "view-transitions", "web-components", "browser", "devtools", "chrome", "ai", "bun"]
 ---
 # CSS
 

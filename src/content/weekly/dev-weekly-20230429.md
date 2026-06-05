@@ -2,7 +2,7 @@
 title: dev-weekly 2023-04-29
 date: "2023-04-29T12:30:00+09:00"
 description: "dev-weekly 2023-04-29"
-tags: ["javascript", "css", "node"]
+tags: ["css", "node", "javascript", "rust", "grpc", "pwa", "devtools", "graphql"]
 ---
 
 # CSS

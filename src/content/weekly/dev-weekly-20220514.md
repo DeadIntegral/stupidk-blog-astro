@@ -2,7 +2,7 @@
 title: dev-weekly 2022-05-14
 date: "2022-05-14T20:00:00+09:00"
 description: "dev-weekly 2022-05-14"
-tags: ["javascript", "css", "node"]
+tags: ["css", "subgrid", "container-query", "node", "deno", "typescript", "performance", "react"]
 ---
 # CSS
 

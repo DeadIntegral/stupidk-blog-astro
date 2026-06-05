@@ -2,7 +2,7 @@
 title: dev-weekly 2025-11-15
 date: "2025-11-15T20:25:00+09:00"
 description: "dev-weekly 2025-11-15"
-tags: ["javascript"]
+tags: ["javascript", "accessibility", "v8", "electron", "tauri", "wasm", "esbuild", "pnpm"]
 ---
 
 # Javascript

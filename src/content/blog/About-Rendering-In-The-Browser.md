@@ -2,7 +2,7 @@
 title: About Rendering In The Browser
 date: "2020-10-23T00:00:00+09:00"
 description: "브라우저의 렌더링에 대하여."
-tags: ["browser"]
+tags: ["browser", "rendering", "dom", "cssom", "performance", "css", "reflow", "compositing"]
 ---
 # 브라우저의 렌더링에 대하여
 

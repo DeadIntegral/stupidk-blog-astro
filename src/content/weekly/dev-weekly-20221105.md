@@ -2,7 +2,7 @@
 title: dev-weekly 2022-11-05
 date: "2022-11-05T14:00:00+09:00"
 description: "dev-weekly 2022-11-05"
-tags: ["javascript", "css", "node"]
+tags: ["typescript", "web-components", "turbopack", "vite", "remix", "rust", "svelte", "npm"]
 ---
 # CSS
 
