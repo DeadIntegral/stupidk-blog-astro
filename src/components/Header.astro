@@ -23,7 +23,7 @@ import { SITE_TITLE } from '../consts';
     <div class="search">
       <Search />
     </div>
-    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="테마 전환">
+    <button id="theme-toggle" class="theme-toggle" type="button" title="테마 전환" aria-label="테마 전환">
       <svg class="i-system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="3" width="20" height="14" rx="2"></rect>
         <path d="M8 21h8M12 17v4"></path>
@@ -72,7 +72,9 @@ import { SITE_TITLE } from '../consts';
   const apply = (m: string) => {
     if (m === 'system') delete html.dataset.theme;
     else html.dataset.theme = m;
-    btn?.setAttribute('aria-label', `테마: ${labels[m]} (클릭해 전환)`);
+    const text = `테마 전환 · 현재: ${labels[m]}`;
+    btn?.setAttribute('aria-label', text);
+    btn?.setAttribute('title', text);
   };
 
   apply(get());
