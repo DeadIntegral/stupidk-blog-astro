@@ -20,10 +20,30 @@ const tags = sortedTagCounts(tagMap);
     <main>
       <section class="tags-page">
         <h1 class="tags-heading">Tags <span class="tags-total">{tags.length}</span></h1>
-        <ul class="tag-cloud">
+
+        <div class="tags-toolbar">
+          <input
+            id="tag-filter"
+            class="tag-filter"
+            type="search"
+            autocomplete="off"
+            placeholder="태그 필터…"
+            aria-label="태그 필터"
+          />
+          <div class="tag-sort" role="group" aria-label="정렬">
+            <button type="button" data-sort="count" aria-pressed="true">빈도순</button>
+            <button type="button" data-sort="name" aria-pressed="false">이름순</button>
+          </div>
+        </div>
+
+        <p class="tag-result" aria-live="polite">
+          <span id="tag-result-count">{tags.length}</span>개
+        </p>
+
+        <ul id="tag-cloud" class="tag-cloud">
           {
             tags.map(({ tag, count }) => (
-              <li>
+              <li data-tag={tag.toLowerCase()} data-count={count}>
                 <a class="tag-chip" href={tagHref(tag)}>
                   <span class="name">#{tag}</span>
                   <span class="count">{count}</span>
@@ -32,11 +52,56 @@ const tags = sortedTagCounts(tagMap);
             ))
           }
         </ul>
+        <p id="tag-empty" class="tag-empty" hidden>일치하는 태그가 없어요.</p>
       </section>
     </main>
     <Footer />
   </body>
 </html>
+
+<script>
+  const input = document.getElementById('tag-filter') as HTMLInputElement | null;
+  const cloud = document.getElementById('tag-cloud');
+  const countEl = document.getElementById('tag-result-count');
+  const emptyEl = document.getElementById('tag-empty');
+  const sortBtns = Array.from(
+    document.querySelectorAll<HTMLButtonElement>('.tag-sort [data-sort]')
+  );
+
+  if (input && cloud && countEl && emptyEl) {
+    const items = Array.from(cloud.children) as HTMLElement[];
+
+    const applyFilter = () => {
+      const q = input.value.trim().toLowerCase();
+      let visible = 0;
+      for (const li of items) {
+        const show = !q || (li.dataset.tag ?? '').includes(q);
+        li.hidden = !show;
+        if (show) visible++;
+      }
+      countEl.textContent = String(visible);
+      emptyEl.hidden = visible !== 0;
+    };
+
+    const applySort = (mode: string) => {
+      const sorted = [...items].sort((a, b) => {
+        const an = a.dataset.tag ?? '';
+        const bn = b.dataset.tag ?? '';
+        if (mode === 'name') return an.localeCompare(bn);
+        return Number(b.dataset.count) - Number(a.dataset.count) || an.localeCompare(bn);
+      });
+      for (const li of sorted) cloud.appendChild(li);
+      for (const btn of sortBtns) {
+        btn.setAttribute('aria-pressed', String(btn.dataset.sort === mode));
+      }
+    };
+
+    input.addEventListener('input', applyFilter);
+    for (const btn of sortBtns) {
+      btn.addEventListener('click', () => applySort(btn.dataset.sort ?? 'count'));
+    }
+  }
+</script>
 
 <style>
   .tags-page {
@@ -49,13 +114,72 @@ const tags = sortedTagCounts(tagMap);
     align-items: baseline;
     gap: 0.5rem;
     font-size: 1.5rem;
-    margin: 0 0 1.5rem;
+    margin: 0 0 1.25rem;
   }
   .tags-total {
     font-size: 0.95rem;
     font-weight: 500;
     color: var(--text-faint);
   }
+
+  .tags-toolbar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.6rem;
+    align-items: center;
+  }
+  .tag-filter {
+    flex: 1;
+    min-width: 0;
+    height: 38px;
+    padding: 0 0.8rem;
+    font-size: 0.95rem;
+    color: var(--text);
+    background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+  }
+  .tag-filter:focus {
+    outline: none;
+    border-color: var(--accent);
+  }
+  .tag-filter::placeholder {
+    color: var(--text-faint);
+  }
+  .tag-sort {
+    display: inline-flex;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+  }
+  .tag-sort button {
+    padding: 0 0.8rem;
+    height: 38px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+    background: var(--bg-elevated);
+    border: none;
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease;
+  }
+  .tag-sort button + button {
+    border-left: 1px solid var(--border);
+  }
+  .tag-sort button:hover {
+    color: var(--text);
+  }
+  .tag-sort button[aria-pressed='true'] {
+    color: var(--accent);
+    background: color-mix(in srgb, var(--accent) 10%, transparent);
+    font-weight: 600;
+  }
+
+  .tag-result {
+    margin: 0.9rem 0 1rem;
+    font-size: 0.8125rem;
+    color: var(--text-faint);
+  }
+
   .tag-cloud {
     display: flex;
     flex-wrap: wrap;
@@ -92,5 +216,9 @@ const tags = sortedTagCounts(tagMap);
     background: var(--bg-soft);
     border-radius: 999px;
     padding: 0.05rem 0.45rem;
+  }
+  .tag-empty {
+    color: var(--text-muted);
+    font-size: 0.9rem;
   }
 </style>
