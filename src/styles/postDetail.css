@@ -59,6 +59,29 @@ main {
   display: none;
 }
 
+.post-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem;
+  margin: 0.9rem 0 0;
+}
+.post-tag {
+  font-size: 0.8125rem;
+  line-height: 1.5;
+  padding: 0.15rem 0.6rem;
+  border-radius: 999px;
+  background: var(--bg-soft);
+  border: 1px solid var(--border);
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: border-color 0.15s ease, color 0.15s ease;
+}
+.post-tag:hover {
+  border-color: var(--border-strong);
+  color: var(--accent);
+  text-decoration: none;
+}
+
 @media (max-width: 720px) {
   .hero-image {
     padding: 1rem 1rem 0;

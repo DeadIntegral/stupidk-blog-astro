@@ -8,7 +8,7 @@ import '../styles/postDetail.css';
 
 type Props = CollectionEntry<'weekly'>['data'];
 
-const { title, description, date, updatedDate, heroImage } = Astro.props;
+const { title, description, date, updatedDate, heroImage, tags } = Astro.props;
 ---
 
 <html lang="ko">
@@ -50,6 +50,17 @@ const { title, description, date, updatedDate, heroImage } = Astro.props;
                 )
               }
             </div>
+            {
+              tags && tags.length > 0 && (
+                <p class="post-tags">
+                  {tags.map((t) => (
+                    <a class="post-tag" href={`/tags/${encodeURIComponent(t)}/`}>
+                      #{t}
+                    </a>
+                  ))}
+                </p>
+              )
+            }
             <hr />
           </div>
           <slot />
