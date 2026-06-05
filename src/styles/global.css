@@ -29,8 +29,10 @@
   --content-width-wide: 960px;
 }
 
+/* 다크 팔레트: 명시적 data-theme="dark" 또는, 선택이 없을 때(OS 다크) 적용.
+   data-theme="light" 이면 강제 라이트. */
 @media (prefers-color-scheme: dark) {
-  :root {
+  :root:not([data-theme='light']) {
     --bg: #0e1117;
     --bg-soft: #161b22;
     --bg-elevated: #1c222b;
@@ -46,6 +48,22 @@
     --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
     color-scheme: dark;
   }
+}
+:root[data-theme='dark'] {
+  --bg: #0e1117;
+  --bg-soft: #161b22;
+  --bg-elevated: #1c222b;
+  --text: #e6e8eb;
+  --text-muted: #9aa3b2;
+  --text-faint: #6b7280;
+  --border: #2a313c;
+  --border-strong: #3a424f;
+  --accent: #60a5fa;
+  --accent-hover: #93c5fd;
+  --code-bg: #1c222b;
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.4), 0 1px 3px rgba(0, 0, 0, 0.3);
+  --shadow-md: 0 4px 12px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3);
+  color-scheme: dark;
 }
 
 @font-face {
@@ -258,4 +276,16 @@ hr {
   clip: rect(1px, 1px, 1px, 1px);
   clip-path: inset(50%);
   white-space: nowrap;
+}
+
+/* 테마 토글 버튼: 현재 모드 아이콘만 표시 (data-theme 미설정 = 시스템) */
+.theme-toggle .i-system,
+.theme-toggle .i-light,
+.theme-toggle .i-dark {
+  display: none;
+}
+:root:not([data-theme]) .theme-toggle .i-system,
+:root[data-theme='light'] .theme-toggle .i-light,
+:root[data-theme='dark'] .theme-toggle .i-dark {
+  display: block;
 }

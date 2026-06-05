@@ -23,6 +23,19 @@ import { SITE_TITLE } from '../consts';
     <div class="search">
       <Search />
     </div>
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="테마 전환">
+      <svg class="i-system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <rect x="2" y="3" width="20" height="14" rx="2"></rect>
+        <path d="M8 21h8M12 17v4"></path>
+      </svg>
+      <svg class="i-light" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="12" cy="12" r="4"></circle>
+        <path d="M12 2v2M12 20v2M2 12h2M20 12h2M5 5l1.5 1.5M17.5 17.5 19 19M19 5l-1.5 1.5M6.5 17.5 5 19"></path>
+      </svg>
+      <svg class="i-dark" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M21 12.8A8 8 0 1 1 11.2 3 6 6 0 0 0 21 12.8z"></path>
+      </svg>
+    </button>
     <div class="social-links">
       <a href="https://github.com/deadintegral/stupidk-blog-astro" target="_blank" aria-label="GitHub">
         <span class="sr-only">Go to GitHub repo</span>
@@ -36,6 +49,40 @@ import { SITE_TITLE } from '../consts';
     </div>
   </nav>
 </header>
+
+<script>
+  const KEY = 'theme';
+  const order = ['system', 'light', 'dark'];
+  const html = document.documentElement;
+  const btn = document.getElementById('theme-toggle');
+  const labels: Record<string, string> = { system: '시스템', light: '라이트', dark: '다크' };
+
+  const get = () => {
+    try {
+      return localStorage.getItem(KEY) || 'system';
+    } catch {
+      return 'system';
+    }
+  };
+  const store = (m: string) => {
+    try {
+      m === 'system' ? localStorage.removeItem(KEY) : localStorage.setItem(KEY, m);
+    } catch {}
+  };
+  const apply = (m: string) => {
+    if (m === 'system') delete html.dataset.theme;
+    else html.dataset.theme = m;
+    btn?.setAttribute('aria-label', `테마: ${labels[m]} (클릭해 전환)`);
+  };
+
+  apply(get());
+  btn?.addEventListener('click', () => {
+    const next = order[(order.indexOf(get()) + 1) % order.length];
+    store(next);
+    apply(next);
+  });
+</script>
+
 <style>
   header {
     position: sticky;
@@ -106,6 +153,25 @@ import { SITE_TITLE } from '../consts';
   .search {
     display: flex;
     align-items: center;
+  }
+  .theme-toggle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0;
+    color: var(--text-muted);
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    cursor: pointer;
+    transition: color 0.15s ease, background 0.15s ease, border-color 0.15s ease;
+  }
+  .theme-toggle:hover {
+    color: var(--text);
+    background: var(--bg-soft);
+    border-color: var(--border-strong);
   }
   .social-links {
     display: flex;
