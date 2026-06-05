@@ -54,6 +54,40 @@ export function sortedTagCounts(map: Map<string, TaggedPost[]>) {
     .sort((a, b) => b.count - a.count || a.tag.localeCompare(b.tag));
 }
 
+/**
+ * 같은 태그를 공유하는 관련 글을 찾는다.
+ * 희소한 태그일수록 가중치를 크게(IDF) 줘서, javascript/css 같은 흔한 태그보다
+ * view-transitions 같은 구체 태그를 공유할 때 더 관련 있다고 본다.
+ */
+export async function getRelatedPosts(
+  current: { collection: TagCollection; id: string; tags?: string[] },
+  limit = 5
+): Promise<TaggedPost[]> {
+  const curTags = new Set(current.tags ?? []);
+  if (curTags.size === 0) return [];
+
+  const all = await getTaggedPosts();
+  const total = all.length;
+
+  const df = new Map<string, number>();
+  for (const p of all) {
+    for (const t of new Set(p.tags)) df.set(t, (df.get(t) ?? 0) + 1);
+  }
+  const weight = (t: string) => Math.log((total + 1) / ((df.get(t) ?? 0) + 1)) + 1;
+
+  const scored: { post: TaggedPost; score: number }[] = [];
+  for (const post of all) {
+    if (post.collection === current.collection && post.id === current.id) continue;
+    let score = 0;
+    for (const t of new Set(post.tags)) {
+      if (curTags.has(t)) score += weight(t);
+    }
+    if (score > 0) scored.push({ post, score });
+  }
+  scored.sort((a, b) => b.score - a.score || b.post.date.getTime() - a.post.date.getTime());
+  return scored.slice(0, limit).map((s) => s.post);
+}
+
 export function postHref(post: TaggedPost) {
   return `/${post.collection}/${post.id}/`;
 }
