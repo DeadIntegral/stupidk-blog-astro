@@ -156,18 +156,23 @@ p {
   margin: 0 0 1em;
 }
 
-.prose p {
+.prose p,
+.weekly-prose p {
   margin-bottom: 1.5em;
 }
 .prose ul,
-.prose ol {
+.prose ol,
+.weekly-prose ul,
+.weekly-prose ol {
   padding-left: 1.25em;
   margin-bottom: 1.5em;
 }
-.prose li {
+.prose li,
+.weekly-prose li {
   margin-bottom: 0.35em;
 }
-.prose aside {
+.prose aside,
+.weekly-prose aside {
   margin: 1.5em 0;
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
@@ -261,6 +266,28 @@ hr {
   pre {
     padding: 0.9em 1em;
     font-size: 0.85rem;
+  }
+
+  /* 모바일 본문: 들여쓰기·간격을 촘촘하게 해 가독성↑ */
+  .prose p,
+  .weekly-prose p {
+    margin-bottom: 1.1em;
+  }
+  .prose ul,
+  .prose ol,
+  .weekly-prose ul,
+  .weekly-prose ol {
+    padding-left: 1.1em;
+    margin-bottom: 1.1em;
+  }
+  .prose li,
+  .weekly-prose li {
+    margin-bottom: 0.2em;
+  }
+  /* 글이 헤딩 위주(특히 weekly)라 헤딩 위 여백도 살짝 축소 */
+  .prose :is(h2, h3, h4),
+  .weekly-prose :is(h2, h3, h4) {
+    margin-top: 1.25em;
   }
 }
 
