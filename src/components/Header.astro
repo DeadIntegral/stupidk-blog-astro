@@ -23,7 +23,7 @@ import { SITE_TITLE } from '../consts';
     <div class="search">
       <Search />
     </div>
-    <button id="theme-toggle" class="theme-toggle" type="button" title="테마 전환" aria-label="테마 전환">
+    <button id="theme-toggle" class="theme-toggle" type="button" aria-label="테마 전환" data-tip="테마 전환">
       <svg class="i-system" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
         <rect x="2" y="3" width="20" height="14" rx="2"></rect>
         <path d="M8 21h8M12 17v4"></path>
@@ -74,7 +74,7 @@ import { SITE_TITLE } from '../consts';
     else html.dataset.theme = m;
     const text = `테마 전환 · 현재: ${labels[m]}`;
     btn?.setAttribute('aria-label', text);
-    btn?.setAttribute('title', text);
+    btn?.setAttribute('data-tip', text);
   };
 
   apply(get());
@@ -157,6 +157,7 @@ import { SITE_TITLE } from '../consts';
     align-items: center;
   }
   .theme-toggle {
+    position: relative;
     display: inline-flex;
     align-items: center;
     justify-content: center;
@@ -174,6 +175,36 @@ import { SITE_TITLE } from '../consts';
     color: var(--text);
     background: var(--bg-soft);
     border-color: var(--border-strong);
+  }
+  /* 커스텀 툴팁: 네이티브 title 보다 빠르게 표시 */
+  .theme-toggle::after {
+    content: attr(data-tip);
+    position: absolute;
+    top: calc(100% + 8px);
+    right: 0;
+    z-index: 60;
+    white-space: nowrap;
+    padding: 0.3rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1.3;
+    color: var(--bg);
+    background: var(--text);
+    border-radius: var(--radius-sm);
+    box-shadow: var(--shadow-md);
+    opacity: 0;
+    transform: translateY(-3px);
+    pointer-events: none;
+    transition: opacity 0.12s ease, transform 0.12s ease;
+  }
+  .theme-toggle:hover::after,
+  .theme-toggle:focus-visible::after {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .theme-toggle::after {
+      transition: none;
+    }
   }
   .social-links {
     display: flex;
