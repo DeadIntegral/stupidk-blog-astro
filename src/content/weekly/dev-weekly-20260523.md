@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2026-05-23
-date: "2026-05-23T21:31:00.000Z"
+date: "2026-05-23T21:31:00+09:00"
 description: "dev-weekly 2026-05-23"
 tags: ["css", "javascript", "node", "i18n", "accessibility", "web-components", "npm", "fetch"]
 ---

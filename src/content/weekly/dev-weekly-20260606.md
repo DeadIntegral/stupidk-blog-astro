@@ -1,6 +1,6 @@
 ---
 title: dev-weekly 2026-06-06
-date: "2026-06-06T16:30:00.000Z"
+date: "2026-06-06T16:30:00+09:00"
 description: "dev-weekly 2026-06-06"
 tags: ["typescript", "javascript", "ai", "wasm", "node", "vite", "cloudflare", "astro"]
 ---
