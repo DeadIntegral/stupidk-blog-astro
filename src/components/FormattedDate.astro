@@ -7,17 +7,42 @@ interface Props {
 
 const { date, pagefindMeta = false } = Astro.props;
 const parsedDate = new Date(date);
+
+// datetime 속성: 정확한 시점(UTC ISO). zone 정보를 보존한 instant.
+const iso = parsedDate.toISOString();
+
+// 빌드 시 폴백 텍스트는 작성 기준(KST)으로 "고정"한다.
+// toLocaleDateString 을 그냥 쓰면 빌드 서버 TZ(로컬 KST vs 배포 UTC)에 따라
+// 자정 근처 날짜가 하루씩 달라지므로, timeZone 을 명시해 결정론적으로 만든다.
+// 렌더 후에는 아래 스크립트가 브라우저 TZ 기준으로 다시 포맷한다.
+const fallback = new Intl.DateTimeFormat('ko-KR', {
+  timeZone: 'Asia/Seoul',
+  year: 'numeric',
+  month: 'short',
+  day: 'numeric',
+}).format(parsedDate);
 ---
 
 <time
-  datetime={parsedDate.toISOString()}
+  datetime={iso}
+  data-date
   data-pagefind-meta={pagefindMeta ? 'date[datetime]' : undefined}
 >
-  {
-    parsedDate.toLocaleDateString('ko-KR', {
+  {fallback}
+</time>
+
+<script>
+  // 날짜를 "보는 사람의 브라우저 타임존" 기준으로 다시 렌더한다.
+  // (동일 컴포넌트 스크립트는 Astro 가 페이지당 한 번만 번들한다)
+  for (const el of document.querySelectorAll<HTMLTimeElement>('time[data-date]')) {
+    const iso = el.getAttribute('datetime');
+    if (!iso) continue;
+    const d = new Date(iso);
+    if (Number.isNaN(d.getTime())) continue;
+    el.textContent = d.toLocaleDateString('ko-KR', {
       year: 'numeric',
       month: 'short',
       day: 'numeric',
-    })
+    });
   }
-</time>
+</script>
