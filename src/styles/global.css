@@ -27,6 +27,8 @@
   --radius-lg: 14px;
   --content-width: 720px;
   --content-width-wide: 960px;
+
+  font-variant-numeric: tabular-nums;
 }
 
 /* 다크 팔레트: 명시적 data-theme="dark" 또는, 선택이 없을 때(OS 다크) 적용.

@@ -15,12 +15,20 @@ const iso = parsedDate.toISOString();
 // toLocaleDateString 을 그냥 쓰면 빌드 서버 TZ(로컬 KST vs 배포 UTC)에 따라
 // 자정 근처 날짜가 하루씩 달라지므로, timeZone 을 명시해 결정론적으로 만든다.
 // 렌더 후에는 아래 스크립트가 브라우저 TZ 기준으로 다시 포맷한다.
-const fallback = new Intl.DateTimeFormat('ko-KR', {
-  timeZone: 'Asia/Seoul',
-  year: 'numeric',
-  month: 'short',
-  day: 'numeric',
-}).format(parsedDate);
+//
+// "YYYY년 MM월 DD일" 로 월·일을 2자리 0-패딩한다(tabular-nums 와 함께 폭을 균일하게).
+// ko-KR + month/day:'2-digit' 은 "2026. 06. 06." 형태라 년/월/일 마커가 사라지므로 직접 조립한다.
+const kst = Object.fromEntries(
+  new Intl.DateTimeFormat('en-CA', {
+    timeZone: 'Asia/Seoul',
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  })
+    .formatToParts(parsedDate)
+    .map((p) => [p.type, p.value])
+);
+const fallback = `${kst.year}년 ${kst.month}월 ${kst.day}일`;
 ---
 
 <time
@@ -39,10 +47,8 @@ const fallback = new Intl.DateTimeFormat('ko-KR', {
     if (!iso) continue;
     const d = new Date(iso);
     if (Number.isNaN(d.getTime())) continue;
-    el.textContent = d.toLocaleDateString('ko-KR', {
-      year: 'numeric',
-      month: 'short',
-      day: 'numeric',
-    });
+    const mm = String(d.getMonth() + 1).padStart(2, '0');
+    const dd = String(d.getDate()).padStart(2, '0');
+    el.textContent = `${d.getFullYear()}년 ${mm}월 ${dd}일`;
   }
 </script>
