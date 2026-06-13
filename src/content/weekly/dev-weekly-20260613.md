@@ -1,7 +1,7 @@
 ---
 title: dev-weekly 2026-06-13
 date: "2026-06-13T15:52:00+09:00"
-description: "dev-weekly 2026-06-13"
+description: "CSS만으로 만드는 뷰 트랜지션, npm v12의 설치 스크립트 기본 비활성화, Node.js 릴리스 체계 개편, AI 시대의 엔지니어링 가치, 구글 폰트 셀프호스팅까지 이번 주 개발 소식."
 tags: ["view-transitions", "css", "web-components", "npm", "security", "node", "ai", "font"]
 ---
 
