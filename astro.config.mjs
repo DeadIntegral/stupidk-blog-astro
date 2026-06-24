@@ -7,7 +7,7 @@ import pagefind from 'astro-pagefind';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://www.stupidk.com',
+  site: 'https://stupidk.com',
   integrations: [mdx(), sitemap(), pagefind()],
   redirects: {},
   markdown: {
