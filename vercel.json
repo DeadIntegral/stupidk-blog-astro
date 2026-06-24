@@ -3,8 +3,8 @@
   "redirects": [
     {
       "source": "/:path*",
-      "has": [{ "type": "host", "value": "stupidk.com" }],
-      "destination": "https://www.stupidk.com/:path*",
+      "has": [{ "type": "host", "value": "www.stupidk.com" }],
+      "destination": "https://stupidk.com/:path*",
       "permanent": true
     }
   ]
