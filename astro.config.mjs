@@ -6,12 +6,13 @@ import rehypeExternalLinks from 'rehype-external-links';
 import { unified } from '@astrojs/markdown-remark';
 
 import sitemap from '@astrojs/sitemap';
-import pagefind from 'astro-pagefind';
 
 // https://astro.build/config
+// 검색 인덱싱(Pagefind)은 통합 대신 빌드 스크립트에서 `pagefind --site dist` 로 직접 돌린다.
+// (검색 UI 인 Search.astro 는 런타임에 /pagefind/pagefind.js 를 직접 로드하므로 통합이 불필요)
 export default defineConfig({
   site: 'https://stupidk.com',
-  integrations: [mdx(), sitemap(), pagefind()],
+  integrations: [mdx(), sitemap()],
   redirects: {},
   markdown: {
     processor: unified(),
