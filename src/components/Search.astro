@@ -71,9 +71,14 @@
     if (pf) return Promise.resolve(pf);
     if (!pfLoading) {
       pfLoading = (async () => {
-        // 경로를 런타임 변수로 만들어 번들러가 정적 분석/해결하지 못하게 한다.
+        // 외부 런타임 모듈(/pagefind/pagefind.js)을 로드한다.
+        // Astro 7(Vite 8/Rolldown)은 /* @vite-ignore */ 를 무시하고 동적 import 를
+        // __vitePreload(()=>import(e), __VITE_PRELOAD__) 로 감싸는데, __VITE_PRELOAD__
+        // 플레이스홀더가 치환되지 않아 런타임 ReferenceError 로 인덱스 로드가 깨졌다.
+        // new Function 으로 import 를 번들러에 보이지 않게 만들어 bare 런타임 import 로 남긴다.
         const url = `${location.origin}/pagefind/pagefind.js`;
-        const mod = await import(/* @vite-ignore */ url);
+        const importModule = new Function('u', 'return import(u)');
+        const mod = await importModule(url);
         await mod.options({ bundlePath: '/pagefind/' });
         await mod.init();
         pf = mod;
