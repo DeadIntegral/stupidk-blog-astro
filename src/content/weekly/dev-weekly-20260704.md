@@ -9,7 +9,7 @@ tags: ["css", "typescript", "performance", "webgl", "npm", "security", "node", "
 
 ### [FixCSS: Library to rectify mistakes in the design of CSS](https://tangled.org/vale.rocks/FixCSS)
 
-- CSS는 설계 과정에서 다양한 실수가 있었고 CSS working group도 이를 인정하여 불완전한 실수 목록 무서 작성. 이 라이브러리는 이러한 문제점을 해결하여 원래 설계 방식대로 작성할 수 있도록 가이드. 올바른 사용법 예시 보여줌.
+- CSS는 설계 과정에서 다양한 실수가 있었고 CSS working group도 이를 인정하여 불완전한 실수 목록 문서 작성. 이 라이브러리는 이러한 문제점을 해결하여 원래 설계 방식대로 작성할 수 있도록 가이드. 올바른 사용법 예시 보여줌.
 
 # Javascript
 
