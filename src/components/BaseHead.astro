@@ -2,6 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { ClientRouter } from 'astro:transitions';
 
 interface Props {
   title: string;
@@ -25,6 +26,9 @@ const { title, description, image = '/blog-placeholder-1.jpg' } = Astro.props;
     } catch (e) {}
   })();
 </script>
+
+<!-- SPA 식 페이지 전환 (View Transitions) -->
+<ClientRouter />
 
 <!-- Global Metadata -->
 <meta charset="utf-8" />
