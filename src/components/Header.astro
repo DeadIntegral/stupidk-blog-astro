@@ -12,7 +12,7 @@ import { SITE_TITLE } from '../consts';
   gtag('config', 'G-Z0RKTW6K2K');
 </script>
 <a class="skip-link" href="#main-content">본문으로 건너뛰기</a>
-<header>
+<header transition:persist="site-header">
   <nav>
     <a class="brand" href="/">{SITE_TITLE}</a>
     <div class="internal-links">
@@ -83,6 +83,35 @@ import { SITE_TITLE } from '../consts';
     const next = order[(order.indexOf(get()) + 1) % order.length];
     store(next);
     apply(next);
+  });
+
+  // 뷰 트랜지션 후 <html> 속성이 초기화될 수 있어 테마를 다시 적용한다(플래시 방지).
+  document.addEventListener('astro:after-swap', () => apply(get()));
+</script>
+
+<script>
+  // 헤더는 transition:persist 로 유지되므로(테마·검색 리스너 보존) 활성 네비 링크가
+  // 서버 렌더로는 갱신되지 않는다. 전환 때마다 현재 경로 기준으로 다시 표시한다.
+  function updateActiveNav() {
+    const path = location.pathname;
+    document.querySelectorAll<HTMLAnchorElement>('.internal-links a').forEach((a) => {
+      const href = a.getAttribute('href') || '';
+      const active = href !== '/' ? path.startsWith(href) : path === '/';
+      a.classList.toggle('active', active);
+    });
+  }
+  document.addEventListener('astro:page-load', updateActiveNav);
+
+  // SPA 전환 시 GA4 페이지뷰 전송 (astro:after-swap 은 최초 로드엔 발동하지 않아 중복 없음)
+  document.addEventListener('astro:after-swap', () => {
+    const g = (window as any).gtag;
+    if (typeof g === 'function') {
+      g('event', 'page_view', {
+        page_path: location.pathname + location.search,
+        page_location: location.href,
+        page_title: document.title,
+      });
+    }
   });
 </script>
 
