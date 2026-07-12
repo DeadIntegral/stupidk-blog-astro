@@ -31,7 +31,7 @@ const { tag, posts } = Astro.props;
   </head>
   <body>
     <Header />
-    <main>
+    <main id="main-content" tabindex="-1">
       <section>
         <p class="tag-breadcrumb"><a href="/tags">← 모든 태그</a></p>
         <h1 class="tag-title">#{tag} <span class="tag-count">{posts.length}</span></h1>
