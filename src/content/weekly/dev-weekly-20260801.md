@@ -1,8 +1,8 @@
 ---
 title: dev-weekly 2026-08-01
 date: "2026-08-01T22:23:00+09:00"
-description: ""
-tags: ["woff"]
+description: "웹폰트 표준 WOFF 1.0의 이정표, Rust가 삼켜버린 JS 툴링, 컴포넌트 성능을 재는 Container Timing API, TS를 네이티브 바이너리로 굽는 scriptc, ARM64 리눅스에 도착한 Chrome까지 이번 주 개발 소식."
+tags: ["woff", "font", "rust", "performance", "typescript", "compiler", "chrome"]
 ---
 
 # CSS
