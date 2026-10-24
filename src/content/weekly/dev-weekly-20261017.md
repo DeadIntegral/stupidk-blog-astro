@@ -7,7 +7,7 @@ tags: ["javascript", "node", "bun", "deno", "websocket", "performance", "browser
 
 # Javscript
 
-### [**2027 Web Platform Feature Ranking**](https://interop-rank.fxdx.dev/)
+### [2027 Web Platform Feature Ranking](https://interop-rank.fxdx.dev/)
 
 - 관심있는 Interop 2027 제안 사항에 투표하여 랭크를 매기는 서비스.
 - 인터롭 과정에서 적절한 제안 사항을 추진하는데도 도움되지만, 제작사(파이어폭스)의 웹 플랫폼 기능 개발 우선순위를 정하는데도 활용
