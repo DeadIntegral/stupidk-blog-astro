@@ -10,7 +10,7 @@ tags: ["react", "devtools", "ai", "browser", "testing", "bun", "bundler", "remix
 ### [Text.js: The Console Framework](https://textjs.org/)
 
 - 브라우저 개발자도구의 콘솔 안에서 렌더링되는 풀스택 React 앱 만드는 프레임워크
-- 키보드 입력, 라우팅, 서버 렌더링 등 지원하고 터미널에서도 실행 가능. MCP를 통해 AI agentrk whwkr rksmd.
+- 키보드 입력, 라우팅, 서버 렌더링 등 지원하고 터미널에서도 실행 가능. MCP를 통해 AI agent가 조작 가능.
 
 ### [Modern Web Guidance 1.0: The web platform expertise your coding agent is missing](https://developer.chrome.com/blog/modern-web-guidance-v1?hl=en)
 
